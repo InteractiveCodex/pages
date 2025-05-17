@@ -1,78 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="./src/assets/icon.ico"
-    />
-    <!-- href="/vite.svg" -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
 
-    <!-- Primary Meta Tags -->
-    <title>Shadcn/React - Landing template</title>
-    <meta
-      name="title"
-      content="Shadcn/React - Landing template"
-    />
-    <meta
-      name="description"
-      content="Free Shadcn landing page for React developers"
-    />
-    <!-- Open Graph / Facebook -->
-    <meta
-      property="og:type"
-      content="website"
-    />
-    <meta
-      property="og:url"
-      content="https://github.com/leoMirandaa/shadcn-landing-page.git"
-    />
-    <meta
-      property="og:title"
-      content="Shadcn/React - Landing template"
-    />
-    <meta
-      property="og:description"
-      content="Free Shadcn landing page for React developers"
-    />
-    <meta
-      property="og:image"
-      content="https://res.cloudinary.com/dbzv9xfjp/image/upload/v1705560686/og-images/shadc-react_gketpd.jpg"
-    />
+    header {
+      background-color: #007acc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-    <!-- Twitter -->
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
+    nav {
+      background-color: #005f99;
+      padding: 10px;
+      text-align: center;
+    }
 
-    <meta
-      name="twitter:url"
-      content="https://github.com/leoMirandaa/shadcn-landing-page.git"
-    />
-    <meta
-      name="twitter:title"
-      content="Shadcn/React - Landing template"
-    />
-    <meta
-      name="twitter:description"
-      content="Free Shadcn landing page for React developers"
-    />
-    <meta
-      name="twitter:image"
-      content="https://res.cloudinary.com/dbzv9xfjp/image/upload/v1705560686/og-images/shadc-react_gketpd.jpg"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script
-      type="module"
-      src="/src/main.tsx"
-    ></script>
-  </body>
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenido a Mi Página Web</h1>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Sobre mí</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <main>
+    <h2>Hola, mundo</h2>
+    <p>Este es un ejemplo de una página web básica hecha con HTML y CSS.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Mi Página Web
+  </footer>
+
+</body>
 </html>
+
