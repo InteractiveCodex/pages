@@ -23,18 +23,23 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      transition: opacity 1s ease, transform 1s ease;
       opacity: 0;
       transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+      pointer-events: none;
     }
 
     .section.visible {
       opacity: 1;
       transform: translateY(0);
+      pointer-events: auto;
     }
 
     .intro {
       background: linear-gradient(to bottom, #000, #111);
+      opacity: 1 !important;
+      transform: none !important;
+      pointer-events: auto;
     }
 
     input, button {
@@ -79,7 +84,7 @@
 <body>
 
   <!-- INTRO -->
-  <section class="section intro visible">
+  <section class="section intro">
     <h1>¿Cuándo comenzó tu historia?</h1>
     <input type="date" id="birthdate" />
     <button onclick="startStory()">Comenzar</button>
@@ -118,10 +123,18 @@
   <script>
     function startStory() {
       const input = document.getElementById("birthdate").value;
-      if (!input) return alert("Por favor introduce tu fecha de nacimiento.");
-      
+      if (!input) {
+        alert("Por favor introduce tu fecha de nacimiento.");
+        return;
+      }
+
       const birthDate = new Date(input);
       const today = new Date();
+
+      if (birthDate > today) {
+        alert("Esa fecha está en el futuro 🤔");
+        return;
+      }
 
       const diffTime = today - birthDate;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -132,25 +145,19 @@
       document.getElementById("weeksLived").innerText = diffWeeks.toLocaleString();
       document.getElementById("hoursLived").innerText = diffHours.toLocaleString();
 
-      // Mostrar secciones al hacer scroll
+      // Mostrar y animar secciones
       const parts = document.querySelectorAll(".section:not(.intro)");
-      parts.forEach(part => part.classList.remove("visible"));
-
-      setTimeout(() => {
-        parts[0].classList.add("visible");
-        parts[0].scrollIntoView({ behavior: "smooth" });
-      }, 500);
-    }
-
-    // Mostrar secciones a medida que se hace scroll
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.section').forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          section.classList.add('visible');
-        }
+      parts.forEach((part, index) => {
+        setTimeout(() => {
+          part.classList.add("visible");
+        }, 1000 * (index + 1));
       });
-    });
+
+      // Ir a la primera parte
+      setTimeout(() => {
+        document.getElementById("part1").scrollIntoView({ behavior: "smooth" });
+      }, 1000);
+    }
   </script>
 
 </body>
