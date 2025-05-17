@@ -6,11 +6,12 @@
   <title>Tu Historia</title>
   <style>
     * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #111;
+      padding: 0;
+      background: #000;
       color: #fff;
+      font-family: 'Segoe UI', sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -20,21 +21,25 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
+      transition: opacity 1s ease, transform 1s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .intro {
-      background: linear-gradient(to bottom, #000, #222);
-    }
-
-    .story {
-      background: #1a1a1a;
-      border-top: 1px solid #333;
+      background: linear-gradient(to bottom, #000, #111);
     }
 
     input, button {
       padding: 1rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin: 1rem auto;
       display: block;
       border: none;
@@ -42,49 +47,73 @@
     }
 
     input {
-      width: 200px;
+      width: 220px;
     }
 
     button {
       background: #00ffff;
       color: #000;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    .hidden {
-      display: none;
+    h1, h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: #ccc;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
 
   <!-- INTRO -->
-  <section class="section intro">
-    <h1>¿Cuándo naciste?</h1>
+  <section class="section intro visible">
+    <h1>¿Cuándo comenzó tu historia?</h1>
     <input type="date" id="birthdate" />
-    <button onclick="startStory()">Ver mi historia</button>
+    <button onclick="startStory()">Comenzar</button>
   </section>
 
   <!-- HISTORIA -->
-  <section class="section story hidden" id="part1">
-    <h2>Has vivido <span id="daysLived"></span> días</h2>
-    <p>...y cada uno de ellos ha sido único.</p>
+  <section class="section" id="part1">
+    <h2>Han pasado <span id="daysLived"></span> días.</h2>
+    <p>Cada uno con sus amaneceres, sus pequeños detalles, sus batallas silenciosas.</p>
   </section>
 
-  <section class="section story hidden" id="part2">
-    <h2>Eso son <span id="weeksLived"></span> semanas</h2>
-    <p>Imagínate todo lo que ha pasado en ese tiempo.</p>
+  <section class="section" id="part2">
+    <h2><span id="weeksLived"></span> semanas de vida.</h2>
+    <p>Algunas volaron, otras dejaron marcas. Todas, tuyas.</p>
   </section>
 
-  <section class="section story hidden" id="part3">
-    <h2>En ese tiempo, el mundo ha cambiado...</h2>
-    <p>Y tú también.</p>
+  <section class="section" id="part3">
+    <h2>Has vivido más de <span id="hoursLived"></span> horas.</h2>
+    <p>Horas soñando, creando, riendo, llorando. Viviendo.</p>
   </section>
 
-  <section class="section story hidden" id="part4">
-    <h2>Pero esto apenas comienza.</h2>
-    <p>Lo mejor aún está por escribirse.</p>
+  <section class="section" id="part4">
+    <h2>Y aún estás aquí.</h2>
+    <p>En este mismo instante, respirando, leyendo esto, con un futuro entero esperando ser escrito.</p>
   </section>
+
+  <section class="section" id="part5">
+    <h2>Esto no es el final.</h2>
+    <p>Es solo una pausa. Un momento para recordar que tu historia es única. Eres irrepetible. Sigue caminando.</p>
+  </section>
+
+  <footer>
+    © 2025 TuNombre. Una experiencia para recordar.
+  </footer>
 
   <script>
     function startStory() {
@@ -97,18 +126,31 @@
       const diffTime = today - birthDate;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       const diffWeeks = Math.floor(diffDays / 7);
+      const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
 
       document.getElementById("daysLived").innerText = diffDays.toLocaleString();
       document.getElementById("weeksLived").innerText = diffWeeks.toLocaleString();
+      document.getElementById("hoursLived").innerText = diffHours.toLocaleString();
 
-      // Mostrar secciones
-      document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
+      // Mostrar secciones al hacer scroll
+      const parts = document.querySelectorAll(".section:not(.intro)");
+      parts.forEach(part => part.classList.remove("visible"));
 
-      // Hacer scroll
       setTimeout(() => {
-        document.getElementById("part1").scrollIntoView({ behavior: "smooth" });
-      }, 300);
+        parts[0].classList.add("visible");
+        parts[0].scrollIntoView({ behavior: "smooth" });
+      }, 500);
     }
+
+    // Mostrar secciones a medida que se hace scroll
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.section').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    });
   </script>
 
 </body>
