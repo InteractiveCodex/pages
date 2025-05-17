@@ -6,12 +6,11 @@
   <title>Tu Historia</title>
   <style>
     * { box-sizing: border-box; }
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      background: #000;
-      color: #fff;
       font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #fff;
       scroll-behavior: smooth;
     }
 
@@ -21,30 +20,21 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
-      pointer-events: none;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
     }
 
     .intro {
-      background: linear-gradient(to bottom, #000, #111);
-      opacity: 1 !important;
-      transform: none !important;
-      pointer-events: auto;
+      background: linear-gradient(to bottom, #000, #222);
+    }
+
+    .story {
+      background: #1a1a1a;
+      border-top: 1px solid #333;
     }
 
     input, button {
       padding: 1rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin: 1rem auto;
       display: block;
       border: none;
@@ -52,32 +42,17 @@
     }
 
     input {
-      width: 220px;
+      width: 200px;
     }
 
     button {
       background: #00ffff;
       color: #000;
       cursor: pointer;
-      font-weight: bold;
     }
 
-    h1, h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      color: #ccc;
-    }
-
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -85,78 +60,54 @@
 
   <!-- INTRO -->
   <section class="section intro">
-    <h1>¿Cuándo comenzó tu historia?</h1>
+    <h1>¿Cuándo naciste?</h1>
     <input type="date" id="birthdate" />
-    <button onclick="startStory()">Comenzar</button>
+    <button onclick="startStory()">Ver mi historia</button>
   </section>
 
   <!-- HISTORIA -->
-  <section class="section" id="part1">
-    <h2>Han pasado <span id="daysLived"></span> días.</h2>
-    <p>Cada uno con sus amaneceres, sus pequeños detalles, sus batallas silenciosas.</p>
+  <section class="section story hidden" id="part1">
+    <h2>Has vivido <span id="daysLived"></span> días</h2>
+    <p>...y cada uno de ellos ha sido único.</p>
   </section>
 
-  <section class="section" id="part2">
-    <h2><span id="weeksLived"></span> semanas de vida.</h2>
-    <p>Algunas volaron, otras dejaron marcas. Todas, tuyas.</p>
+  <section class="section story hidden" id="part2">
+    <h2>Eso son <span id="weeksLived"></span> semanas</h2>
+    <p>Imagínate todo lo que ha pasado en ese tiempo.</p>
   </section>
 
-  <section class="section" id="part3">
-    <h2>Has vivido más de <span id="hoursLived"></span> horas.</h2>
-    <p>Horas soñando, creando, riendo, llorando. Viviendo.</p>
+  <section class="section story hidden" id="part3">
+    <h2>En ese tiempo, el mundo ha cambiado...</h2>
+    <p>Y tú también.</p>
   </section>
 
-  <section class="section" id="part4">
-    <h2>Y aún estás aquí.</h2>
-    <p>En este mismo instante, respirando, leyendo esto, con un futuro entero esperando ser escrito.</p>
+  <section class="section story hidden" id="part4">
+    <h2>Pero esto apenas comienza.</h2>
+    <p>Lo mejor aún está por escribirse.</p>
   </section>
-
-  <section class="section" id="part5">
-    <h2>Esto no es el final.</h2>
-    <p>Es solo una pausa. Un momento para recordar que tu historia es única. Eres irrepetible. Sigue caminando.</p>
-  </section>
-
-  <footer>
-    © 2025 TuNombre. Una experiencia para recordar.
-  </footer>
 
   <script>
     function startStory() {
       const input = document.getElementById("birthdate").value;
-      if (!input) {
-        alert("Por favor introduce tu fecha de nacimiento.");
-        return;
-      }
-
+      if (!input) return alert("Por favor introduce tu fecha de nacimiento.");
+      
       const birthDate = new Date(input);
       const today = new Date();
-
-      if (birthDate > today) {
-        alert("Esa fecha está en el futuro 🤔");
-        return;
-      }
 
       const diffTime = today - birthDate;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       const diffWeeks = Math.floor(diffDays / 7);
-      const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
 
       document.getElementById("daysLived").innerText = diffDays.toLocaleString();
       document.getElementById("weeksLived").innerText = diffWeeks.toLocaleString();
-      document.getElementById("hoursLived").innerText = diffHours.toLocaleString();
 
-      // Mostrar y animar secciones
-      const parts = document.querySelectorAll(".section:not(.intro)");
-      parts.forEach((part, index) => {
-        setTimeout(() => {
-          part.classList.add("visible");
-        }, 1000 * (index + 1));
-      });
+      // Mostrar secciones
+      document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
 
-      // Ir a la primera parte
+      // Hacer scroll
       setTimeout(() => {
         document.getElementById("part1").scrollIntoView({ behavior: "smooth" });
-      }, 1000);
+      }, 300);
     }
   </script>
 
