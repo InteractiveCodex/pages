@@ -3,92 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GTA VI Trailer</title>
+  <title>Mi Portal Personal</title>
   <style>
     body {
       margin: 0;
-      background: #000;
+      background-color: #0e0e0e;
       color: #fff;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      padding: 4rem 1rem;
+    }
+
+    header {
       text-align: center;
-      overflow-x: hidden;
+      margin-bottom: 4rem;
     }
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
     }
 
     p {
       color: #ccc;
       font-size: 1.2rem;
-      margin-bottom: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .video-container {
-      width: 90%;
-      max-width: 800px;
-      aspect-ratio: 16/9;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    iframe {
+    .section {
+      max-width: 900px;
       width: 100%;
-      height: 100%;
-      border: none;
+      margin-bottom: 4rem;
+      border-top: 1px solid #333;
+      padding-top: 2rem;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .item {
+      background-color: #1a1a1a;
+      padding: 1rem 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 0 30px rgba(255, 0, 255, 0.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      transition: background 0.3s;
     }
 
-    .button {
-      display: inline-block;
-      padding: 0.8rem 1.6rem;
-      border: 2px solid #fff;
-      color: #fff;
+    .item:hover {
+      background-color: #222;
+    }
+
+    .item a {
+      color: #00ffff;
       text-decoration: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .button:hover {
-      background: #fff;
-      color: #000;
+      font-weight: bold;
     }
 
     footer {
       margin-top: 4rem;
-      color: #666;
+      color: #555;
       font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Grand Theft Auto VI</h1>
-  <p>Mira el tráiler oficial ahora.</p>
 
-  <div class="video-container">
-    <iframe 
-      src="https://www.youtube.com/embed/QdBZY2fkU-0"
-      title="GTA VI Trailer" 
-      allowfullscreen
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-    </iframe>
-  </div>
+  <header>
+    <h1>Mis Proyectos</h1>
+    <p>Bienvenido a mi sitio personal. Aquí encontrarás mis desarrollos, addons y más contenido.</p>
+  </header>
 
-  <a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" class="button">
-    Ver en YouTube
-  </a>
+  <section class="section">
+    <h2>📱 Mi App Móvil</h2>
+    <div class="item-list">
+      <div class="item">
+        <p><a href="ruta/a/tu-app.apk" download>Descargar APK</a></p>
+        <p>Última versión de mi app para Android.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🧙 Addons para WoW Classic</h2>
+    <div class="item-list">
+      <div class="item">
+        <p><a href="ruta/a/addon1.zip" download>Addon 1</a></p>
+        <p>Mi primer addon personalizado para WoW Classic.</p>
+      </div>
+      <div class="item">
+        <p><a href="ruta/a/addon2.zip" download>Addon 2</a></p>
+        <p>Otro addon con funcionalidades especiales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>📂 Otros archivos</h2>
+    <div class="item-list">
+      <div class="item">
+        <p><a href="ruta/a/archivo.zip" download>Proyecto.zip</a></p>
+        <p>Algunos recursos o código que comparto.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    © 2025 Rockstar Games. Esta es una página fan.
+    © 2025 TuNombre. Página estilo Rockstar hecha por ti.
   </footer>
+
 </body>
 </html>
 
