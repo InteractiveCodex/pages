@@ -3,127 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Portal Personal</title>
+  <title>Tu Historia</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      background-color: #0e0e0e;
-      color: #fff;
       font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 4rem 1rem;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      color: #ccc;
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
+      background: #111;
+      color: #fff;
+      scroll-behavior: smooth;
     }
 
     .section {
-      max-width: 900px;
-      width: 100%;
-      margin-bottom: 4rem;
-      border-top: 1px solid #333;
-      padding-top: 2rem;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .item-list {
+      min-height: 100vh;
+      padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      justify-content: center;
+      text-align: center;
     }
 
-    .item {
-      background-color: #1a1a1a;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-      transition: background 0.3s;
+    .intro {
+      background: linear-gradient(to bottom, #000, #222);
     }
 
-    .item:hover {
-      background-color: #222;
+    .story {
+      background: #1a1a1a;
+      border-top: 1px solid #333;
     }
 
-    .item a {
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: bold;
+    input, button {
+      padding: 1rem;
+      font-size: 1rem;
+      margin: 1rem auto;
+      display: block;
+      border: none;
+      border-radius: 6px;
     }
 
-    footer {
-      margin-top: 4rem;
-      color: #555;
-      font-size: 0.9rem;
+    input {
+      width: 200px;
+    }
+
+    button {
+      background: #00ffff;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Mis Proyectos</h1>
-    <p>Bienvenido a mi sitio personal. Aquí encontrarás mis desarrollos, addons y más contenido.</p>
-  </header>
-
-  <section class="section">
-    <h2>📱 Mi App Móvil</h2>
-    <div class="item-list">
-      <div class="item">
-        <p><a href="ruta/a/tu-app.apk" download>Descargar APK</a></p>
-        <p>Última versión de mi app para Android.</p>
-      </div>
-    </div>
+  <!-- INTRO -->
+  <section class="section intro">
+    <h1>¿Cuándo naciste?</h1>
+    <input type="date" id="birthdate" />
+    <button onclick="startStory()">Ver mi historia</button>
   </section>
 
-  <section class="section">
-    <h2>🧙 Addons para WoW Classic</h2>
-    <div class="item-list">
-      <div class="item">
-        <p><a href="ruta/a/addon1.zip" download>Addon 1</a></p>
-        <p>Mi primer addon personalizado para WoW Classic.</p>
-      </div>
-      <div class="item">
-        <p><a href="ruta/a/addon2.zip" download>Addon 2</a></p>
-        <p>Otro addon con funcionalidades especiales.</p>
-      </div>
-    </div>
+  <!-- HISTORIA -->
+  <section class="section story hidden" id="part1">
+    <h2>Has vivido <span id="daysLived"></span> días</h2>
+    <p>...y cada uno de ellos ha sido único.</p>
   </section>
 
-  <section class="section">
-    <h2>📂 Otros archivos</h2>
-    <div class="item-list">
-      <div class="item">
-        <p><a href="ruta/a/archivo.zip" download>Proyecto.zip</a></p>
-        <p>Algunos recursos o código que comparto.</p>
-      </div>
-    </div>
+  <section class="section story hidden" id="part2">
+    <h2>Eso son <span id="weeksLived"></span> semanas</h2>
+    <p>Imagínate todo lo que ha pasado en ese tiempo.</p>
   </section>
 
-  <footer>
-    © 2025 TuNombre. Página estilo Rockstar hecha por ti.
-  </footer>
+  <section class="section story hidden" id="part3">
+    <h2>En ese tiempo, el mundo ha cambiado...</h2>
+    <p>Y tú también.</p>
+  </section>
+
+  <section class="section story hidden" id="part4">
+    <h2>Pero esto apenas comienza.</h2>
+    <p>Lo mejor aún está por escribirse.</p>
+  </section>
+
+  <script>
+    function startStory() {
+      const input = document.getElementById("birthdate").value;
+      if (!input) return alert("Por favor introduce tu fecha de nacimiento.");
+      
+      const birthDate = new Date(input);
+      const today = new Date();
+
+      const diffTime = today - birthDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const diffWeeks = Math.floor(diffDays / 7);
+
+      document.getElementById("daysLived").innerText = diffDays.toLocaleString();
+      document.getElementById("weeksLived").innerText = diffWeeks.toLocaleString();
+
+      // Mostrar secciones
+      document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
+
+      // Hacer scroll
+      setTimeout(() => {
+        document.getElementById("part1").scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  </script>
 
 </body>
 </html>
-
