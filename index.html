@@ -142,6 +142,10 @@
       const diffTime = today - birthDate;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
+      const avgBeatsPerDay = 100000; // 60-100 latidos por minuto * 1440 min = ~100,000
+      const estimatedBeats = diffDays * avgBeatsPerDay;
+      document.getElementById("latidos").innerText = estimatedBeats.toLocaleString();
+
       document.getElementById("daysLived").innerText = diffDays.toLocaleString();
 
       document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
