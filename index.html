@@ -100,8 +100,7 @@
   </section>
 
   <section class="section story hidden" id="part2">
-    <h2>Eso son <span id="weeksLived"></span> semanas</h2>
-    <p>Imagínate todo lo que ha pasado en ese tiempo.</p>
+    <h2>En ese tiempo tu corazon ha latido aproximadamente <span id="latidos"></span> de veces </h2>
   </section>
 
   <section class="section story hidden" id="part3">
@@ -142,10 +141,8 @@
 
       const diffTime = today - birthDate;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      const diffWeeks = Math.floor(diffDays / 7);
 
       document.getElementById("daysLived").innerText = diffDays.toLocaleString();
-      document.getElementById("weeksLived").innerText = diffWeeks.toLocaleString();
 
       document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
 
