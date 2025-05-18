@@ -55,7 +55,6 @@
       display: none;
     }
 
-    /* Ajuste del contenedor de los inputs separados */
     #custom-date-input {
       display: flex;
       gap: 0.2rem;
@@ -96,11 +95,11 @@
   </section>
 
   <section class="section story hidden" id="part1">
-    <h2>Han sucedido muchas cosas en los <span id="daysLived"></span> días trancurridos desde que naciste</h2>
+    <h2>Han sucedido muchas cosas en los <span id="daysLived"></span> días transcurridos desde que naciste</h2>
   </section>
 
   <section class="section story hidden" id="part2">
-    <h2>En ese tiempo tu corazon ha latido aproximadamente <span id="latidos"></span> de veces </h2>
+    <h2>En ese tiempo tu corazón ha latido aproximadamente <span id="latidos"></span> veces</h2>
   </section>
 
   <section class="section story hidden" id="part3">
@@ -120,8 +119,12 @@
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'recursos/anim_person.json'  // aquí la ruta local
+      path: 'recursos/anim_person.json'  // Ruta local de la animación
     });
+
+    let birthDateGlobal;
+    const avgBeatsPerSecond = 100000 / (24 * 60 * 60); // Aprox. 1.1574 latidos por segundo
+    let intervalId;
 
     function startStory() {
       const day = parseInt(document.getElementById("day").value, 10);
@@ -139,23 +142,34 @@
         return alert("Introduce una fecha válida del pasado.");
       }
 
+      birthDateGlobal = birthDate;
+
+      // Días vividos iniciales
       const diffTime = today - birthDate;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-      const avgBeatsPerDay = 100000; // 60-100 latidos por minuto * 1440 min = ~100,000
-      const estimatedBeats = diffDays * avgBeatsPerDay;
-      document.getElementById("latidos").innerText = estimatedBeats.toLocaleString();
-
       document.getElementById("daysLived").innerText = diffDays.toLocaleString();
 
+      // Mostrar secciones
       document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
+
+      // Iniciar contador en tiempo real
+      actualizarLatidos(); // Inicial
+      clearInterval(intervalId); // Limpiar si ya había uno
+      intervalId = setInterval(actualizarLatidos, 1000); // Actualiza cada segundo
 
       setTimeout(() => {
         document.getElementById("part1").scrollIntoView({ behavior: "smooth" });
       }, 300);
     }
+
+    function actualizarLatidos() {
+      const now = new Date();
+      const msVividos = now - birthDateGlobal;
+      const segundosVividos = Math.floor(msVividos / 1000);
+      const beats = Math.floor(segundosVividos * avgBeatsPerSecond);
+      document.getElementById("latidos").innerText = beats.toLocaleString();
+    }
   </script>
 
 </body>
 </html>
- 
