@@ -1,20 +1,12 @@
 <!DOCTYPE html>
-<!-- Declaración del tipo de documento, en este caso HTML5 -->
 <html lang="es">
-<!-- Etiqueta raíz del documento, se indica que el idioma es español -->
 
 <head>
   <meta charset="UTF-8" />
-  <!-- Codificación de caracteres en UTF-8 -->
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Configura la vista para dispositivos móviles -->
-
   <title>Tu Historia</title>
-  <!-- Título que aparecerá en la pestaña del navegador -->
 
   <style>
-    /* Estilos generales para todos los elementos */
     * { box-sizing: border-box; }
 
     body {
@@ -25,9 +17,8 @@
       scroll-behavior: smooth;
     }
 
-    /* Clase base para cada sección de pantalla completa */
     .section {
-      min-height: 100vh; /* ocupa el alto completo de la ventana */
+      min-height: 100vh;
       padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
@@ -35,56 +26,64 @@
       text-align: center;
     }
 
-    /* Estilo de la sección de introducción */
     .intro {
       background: linear-gradient(to bottom, #000, #222);
     }
 
-    /* Estilo de las secciones de historia */
     .story {
       background: #1a1a1a;
       border-top: 1px solid #333;
     }
 
-    /* Estilos para los campos de entrada y botón */
     input, button {
       padding: 1rem;
       font-size: 1rem;
-      margin: 1rem auto;
       display: block;
       border: none;
       border-radius: 6px;
     }
 
-    input {
-      width: 200px;
-    }
-
     button {
+      margin: 1rem auto;
       background: #00ffff;
       color: #000;
       cursor: pointer;
     }
 
-    /* Clase para ocultar elementos */
     .hidden {
       display: none;
+    }
+
+    /* Ajuste del contenedor de los inputs separados */
+    #custom-date-input {
+      display: flex;
+      gap: 0.2rem; /* Menor espacio horizontal */
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    #custom-date-input input {
+      width: 90px; /* Más estrechos */
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- SECCIÓN DE INTRODUCCIÓN -->
   <section class="section intro">
     <h1>¿Cuándo naciste?</h1>
-    <!-- Campo para ingresar la fecha de nacimiento -->
-    <input type="date" id="birthdate" />
-    <!-- Botón que inicia la historia al hacer clic -->
+
+    <!-- Campos separados: día, mes y año -->
+    <div id="custom-date-input">
+      <input type="number" id="day" placeholder="Día" min="1" max="31" />
+      <input type="number" id="month" placeholder="Mes" min="1" max="12" />
+      <input type="number" id="year" placeholder="Año" min="1900" max="2100" />
+    </div>
+
     <button onclick="startStory()">Ver mi historia</button>
   </section>
-
-  <!-- SECCIONES DE HISTORIA (ocultas al inicio) -->
 
   <section class="section story hidden" id="part1">
     <h2>Has vivido <span id="daysLived"></span> días</h2>
@@ -106,34 +105,32 @@
     <p>Lo mejor aún está por escribirse.</p>
   </section>
 
-  <!-- SCRIPT PARA LA LÓGICA INTERACTIVA -->
   <script>
     function startStory() {
-      // Obtener la fecha del input
-      const input = document.getElementById("birthdate").value;
+      const day = parseInt(document.getElementById("day").value, 10);
+      const month = parseInt(document.getElementById("month").value, 10);
+      const year = parseInt(document.getElementById("year").value, 10);
 
-      // Validar que el usuario haya ingresado una fecha
-      if (!input) return alert("Por favor introduce tu fecha de nacimiento.");
-      
-      // Crear objeto de fecha a partir del input
-      const birthDate = new Date(input);
-      const today = new Date(); // Obtener fecha actual
+      if (!day || !month || !year) {
+        return alert("Por favor introduce una fecha completa.");
+      }
 
-      // Calcular diferencia en milisegundos
+      const birthDate = new Date(year, month - 1, day);
+      const today = new Date();
+
+      if (birthDate > today || isNaN(birthDate.getTime())) {
+        return alert("Introduce una fecha válida del pasado.");
+      }
+
       const diffTime = today - birthDate;
-
-      // Convertir a días y semanas
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       const diffWeeks = Math.floor(diffDays / 7);
 
-      // Mostrar resultados en pantalla usando .toLocaleString() para formato amigable
       document.getElementById("daysLived").innerText = diffDays.toLocaleString();
       document.getElementById("weeksLived").innerText = diffWeeks.toLocaleString();
 
-      // Mostrar todas las secciones ocultas de la historia
       document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
 
-      // Hacer scroll suave a la primera sección de historia
       setTimeout(() => {
         document.getElementById("part1").scrollIntoView({ behavior: "smooth" });
       }, 300);
@@ -142,3 +139,6 @@
 
 </body>
 </html>
+
+
+
