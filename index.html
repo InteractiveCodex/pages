@@ -10,62 +10,82 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #111;
       color: #fff;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      scroll-behavior: smooth;
-      text-align: center;
-      padding: 2rem;
+      align-items: center;
+      padding: 3rem 1rem;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
     nav {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
-      width: 250px;
+      width: 100%;
+      max-width: 800px;
     }
 
     a {
-      background: #00ffff;
-      color: #000;
+      display: block;
+      background-color: #1a1a1a;
+      color: #fff;
       padding: 1rem;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1.2rem;
+      border: 1px solid #00ffff33;
+      border-radius: 10px;
       text-decoration: none;
-      box-shadow: 0 0 8px #00ffffaa;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
 
-    a:hover,
-    a:focus {
-      background: #00cccc;
-      box-shadow: 0 0 14px #00cccccc;
-      outline: none;
+    a:hover {
+      transform: translateY(-3px);
+      border-color: #00ffff;
+      box-shadow: 0 0 10px #00ffff66;
+    }
+
+    footer {
+      margin-top: auto;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 
 <body>
-  <h1>Create by Javier</h1>
+  <header>
+    <h1>InteractiveCodex</h1>
+    <p>Creado por Javier — Explora mis juegos y experimentos</p>
+  </header>
+
   <nav>
     <a href="stats-de-vida.html">Stats de Vida</a>
-    <!-- agregar más enlaces aquí -->
+    <!-- Agrega más enlaces aquí conforme crezcas -->
   </nav>
+
+  <footer>
+    © 2025 Javier. Todos los derechos reservados.
+  </footer>
 </body>
 
 </html>
