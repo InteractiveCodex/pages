@@ -6,23 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>InteractiveCodex</title>
   <link rel="icon" href="recursos/corazon.png" type="image/png" />
-
   <style>
+    /* RESET */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #111;
       color: #fff;
+      background: linear-gradient(to bottom, #0f0f0f 0%, #1a1a1a 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 3rem 1rem;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 120%;
+      width: 100%;
+      background: url('recursos/bg-parallax.jpg') no-repeat center center / cover;
+      z-index: -1;
+      transform: translateZ(0);
+      will-change: transform;
+      opacity: 0.15;
     }
 
     header {
@@ -31,9 +50,14 @@
     }
 
     header h1 {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #ccc;
     }
 
     nav {
@@ -41,33 +65,46 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
       width: 100%;
-      max-width: 400px;
+      max-width: 600px;
+      margin-bottom: 3rem;
     }
 
     a {
-      display: block;
-      background-color: #1a1a1a;
+      background: rgba(26, 26, 26, 0.85);
       color: #fff;
-      padding: 1rem;
+      padding: 1.2rem;
       border: 1px solid #00ffff33;
-      border-radius: 10px;
+      border-radius: 12px;
       text-decoration: none;
       font-size: 1.1rem;
       transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
+      backdrop-filter: blur(4px);
     }
 
     a:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: #00ffff;
-      box-shadow: 0 0 10px #00ffff66;
+      box-shadow: 0 0 15px #00ffff66;
     }
 
     footer {
       margin-top: auto;
-      padding-top: 2rem;
+      padding: 2rem 0 1rem;
       font-size: 0.9rem;
       color: #aaa;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      a {
+        font-size: 1rem;
+        padding: 1rem;
+      }
     }
   </style>
 </head>
@@ -80,7 +117,7 @@
 
   <nav>
     <a href="stats-de-vida.html">Stats de Vida</a>
-    <!-- Agrega más -->
+    <!-- Puedes añadir más botones aquí -->
   </nav>
 
   <footer>
