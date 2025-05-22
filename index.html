@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +7,14 @@
   <link rel="icon" href="recursos/corazon.png" type="image/png" />
 
   <style>
+    :root {
+      --main-bg: #fdfdfd;
+      --card-bg: #ffffff;
+      --text-color: #111;
+      --accent-color: #00bcd4;
+      --hover-shadow: rgba(0, 188, 212, 0.2);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -16,13 +23,14 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #111;
-      color: #fff;
+      background: var(--main-bg);
+      color: var(--text-color);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
+      transition: background 0.3s ease;
     }
 
     header {
@@ -31,56 +39,80 @@
     }
 
     header h1 {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #666;
     }
 
     nav {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
       width: 100%;
-      max-width: 400px;
+      max-width: 700px;
     }
 
     a {
       display: block;
-      background-color: #1a1a1a;
-      color: #fff;
-      padding: 1rem;
-      border: 1px solid #00ffff33;
-      border-radius: 10px;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      padding: 1.5rem;
+      border: 2px solid #eee;
+      border-radius: 16px;
       text-decoration: none;
-      font-size: 1.1rem;
-      transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
     a:hover {
-      transform: translateY(-3px);
-      border-color: #00ffff;
-      box-shadow: 0 0 10px #00ffff66;
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+      box-shadow: 0 12px 24px var(--hover-shadow);
     }
 
     footer {
       margin-top: auto;
-      padding-top: 2rem;
+      padding-top: 4rem;
       font-size: 0.9rem;
-      color: #aaa;
+      color: #888;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --main-bg: #111;
+        --card-bg: #1c1c1c;
+        --text-color: #fff;
+        --hover-shadow: rgba(0, 255, 255, 0.2);
+      }
+
+      a {
+        border-color: #222;
+      }
+
+      a:hover {
+        border-color: #00ffff;
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>En Construcción</h1>
+    <h1>InteractiveCodex</h1>
     <p>Creado por Javier</p>
   </header>
 
   <nav>
     <a href="stats-de-vida.html">Stats de Vida</a>
-    <!-- Agrega más -->
+    <a href="#">Próximamente</a>
+    <!-- Agrega más secciones -->
   </nav>
 
   <footer>
@@ -88,3 +120,4 @@
   </footer>
 </body>
 </html>
+
