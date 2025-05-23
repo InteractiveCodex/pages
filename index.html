@@ -31,6 +31,20 @@
       align-items: center;
       min-height: 100vh;
       padding: 3rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    #video-fondo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.2;
+      pointer-events: none;
     }
 
     header {
@@ -103,12 +117,12 @@
       text-align: center;
     }
 
-    /* Animaciones de entrada */
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -135,6 +149,12 @@
 </head>
 
 <body>
+  <!-- Video de fondo -->
+  <video autoplay muted loop playsinline id="video-fondo">
+    <source src="recursos/fondo.mp4" type="video/mp4">
+    Tu navegador no soporta el video de fondo.
+  </video>
+
   <header class="animate animate-delay-1">
     <h1>Coming Soon</h1>
     <p>Create by Javier</p>
