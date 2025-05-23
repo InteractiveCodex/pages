@@ -1,13 +1,24 @@
 <!DOCTYPE html>
+<!-- Indica que este documento es HTML5 -->
+
 <html lang="es">
+<!-- Comienza el documento HTML, el atributo lang="es" indica que el idioma es español -->
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Define la codificación de caracteres como UTF-8 para soportar tildes y caracteres especiales -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Hace que el sitio sea responsive, es decir, se vea bien en móviles y tablets -->
+
   <title>InteractiveCodex</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+
   <link rel="icon" href="recursos/corazon.png" type="image/png" />
+  <!-- Ícono que aparece en la pestaña (favicon) -->
 
   <style>
+    /* Variables de color personalizadas para usar en todo el CSS */
     :root {
       --primary: #00ffff;
       --bg: #0d0d0d;
@@ -16,15 +27,17 @@
       --accent: #00ffff66;
     }
 
+    /* Elimina márgenes y padding por defecto en todos los elementos */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* Estilo base del cuerpo del sitio */
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a); /* fondo degradado */
       color: var(--text);
       display: flex;
       flex-direction: column;
@@ -35,6 +48,7 @@
       z-index: 1;
     }
 
+    /* Estilo del video de fondo */
     #video-fondo {
       position: fixed;
       top: 0;
@@ -42,11 +56,12 @@
       min-width: 100vw;
       min-height: 100vh;
       object-fit: cover;
-      z-index: -1;
-      opacity: 0.2;
-      pointer-events: none;
+      z-index: -1; /* para que esté detrás de todo */
+      opacity: 0.2; /* un poco transparente */
+      pointer-events: none; /* no interfiere con clics */
     }
 
+    /* Encabezado principal */
     header {
       text-align: center;
       margin-bottom: 3rem;
@@ -57,7 +72,7 @@
       font-weight: 600;
       margin-bottom: 0.5rem;
       color: var(--primary);
-      text-shadow: 0 0 10px var(--accent);
+      text-shadow: 0 0 10px var(--accent); /* resplandor */
     }
 
     header p {
@@ -65,14 +80,16 @@
       color: #ccc;
     }
 
+    /* Menú de navegación */
     nav {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* diseño adaptable */
       gap: 1.5rem;
       width: 100%;
       max-width: 600px;
     }
 
+    /* Estilos para los enlaces */
     a {
       background-color: var(--card-bg);
       color: var(--text);
@@ -88,6 +105,7 @@
       overflow: hidden;
     }
 
+    /* Efecto brillante al pasar el mouse */
     a::before {
       content: '';
       position: absolute;
@@ -99,16 +117,19 @@
       transition: all 0.6s ease;
     }
 
+    /* Efecto al pasar el mouse sobre el enlace */
     a:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px); /* se eleva un poco */
       border-color: var(--primary);
-      box-shadow: 0 0 15px var(--accent);
+      box-shadow: 0 0 15px var(--accent); /* sombra de brillo */
     }
 
+    /* Movimiento del brillo al pasar el mouse */
     a:hover::before {
       left: 100%;
     }
 
+    /* Pie de página */
     footer {
       margin-top: auto;
       padding-top: 2rem;
@@ -117,6 +138,7 @@
       text-align: center;
     }
 
+    /* Animación de entrada suave */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -129,6 +151,7 @@
       }
     }
 
+    /* Clases para aplicar la animación */
     .animate {
       animation: fadeInUp 1s ease forwards;
       opacity: 0;
@@ -149,25 +172,29 @@
 </head>
 
 <body>
-  <!-- Video de fondo -->
+  <!-- Video de fondo, reproduce automáticamente y se repite -->
   <video autoplay muted loop playsinline id="video-fondo">
     <source src="fondo.mp4" type="video/mp4">
     Tu navegador no soporta el video de fondo.
   </video>
 
+  <!-- Encabezado principal con animación -->
   <header class="animate animate-delay-1">
     <h1>Coming Soon</h1>
     <p>Create by Javier</p>
   </header>
 
+  <!-- Menú de navegación con un enlace, puedes agregar más -->
   <nav class="animate animate-delay-2">
     <a href="stats-de-vida.html">Stats de Vida</a>
     <!-- Puedes agregar más enlaces aquí -->
   </nav>
 
+  <!-- Pie de página -->
   <footer class="animate animate-delay-3">
     © 2025 Javier. Todos los derechos reservados.
   </footer>
 </body>
 
 </html>
+
