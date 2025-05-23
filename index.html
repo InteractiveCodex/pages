@@ -103,21 +103,50 @@
       color: #888;
       text-align: center;
     }
+
+    /* Animaciones de entrada */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .animate-delay-1 {
+      animation-delay: 0.3s;
+    }
+
+    .animate-delay-2 {
+      animation-delay: 0.6s;
+    }
+
+    .animate-delay-3 {
+      animation-delay: 0.9s;
+    }
   </style>
 </head>
 
 <body>
-  <header>
+  <header class="animate animate-delay-1">
     <h1>En Construcción</h1>
     <p>Creado por Javier</p>
   </header>
 
-  <nav>
+  <nav class="animate animate-delay-2">
     <a href="stats-de-vida.html">Stats de Vida</a>
-    <!-- Agrega más enlaces aquí -->
+    <!-- Puedes agregar más enlaces aquí -->
   </nav>
 
-  <footer>
+  <footer class="animate animate-delay-3">
     © 2025 Javier. Todos los derechos reservados.
   </footer>
 </body>
