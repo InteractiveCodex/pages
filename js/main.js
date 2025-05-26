@@ -37,7 +37,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_abajo.json'
+  path: 'recursos/indicador.json'
 });
 
 let birthDateGlobal;
