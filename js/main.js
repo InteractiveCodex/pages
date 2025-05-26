@@ -9,6 +9,40 @@ lottie.loadAnimation({
   path: 'recursos/anim_person.json'
 });
 
+// Animaciones para historia
+
+// Para part1
+lottie.loadAnimation({
+  container: document.querySelector('#part1 .animation-top'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_arriba.json'  // Pon aquí la animación que quieras
+});
+lottie.loadAnimation({
+  container: document.querySelector('#part1 .animation-bottom'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_abajo.json'
+});
+
+// Para part2
+lottie.loadAnimation({
+  container: document.querySelector('#part2 .animation-top'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_arriba.json'
+});
+lottie.loadAnimation({
+  container: document.querySelector('#part2 .animation-bottom'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_abajo.json'
+});
+
 let birthDateGlobal;
 const avgBeatsPerSecond = 100000 / (24 * 60 * 60); // Aprox. 1.157 latidos/segundo
 let beatsContador = 0;
