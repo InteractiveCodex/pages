@@ -1,5 +1,3 @@
-// main.js
-
 // Animación Lottie
 lottie.loadAnimation({
   container: document.getElementById('lottie-container'),
@@ -10,14 +8,13 @@ lottie.loadAnimation({
 });
 
 // Animaciones para historia
-
 // Para part1
 lottie.loadAnimation({
   container: document.querySelector('#part1 .animation-top'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_arriba.json'  // Pon aquí la animación que quieras
+  path: 'recursos/anim_arriba.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part1 .animation-bottom'),
