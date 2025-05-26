@@ -21,7 +21,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/indicator.json'
+  path: 'recursos/indicador.json'
 });
 
 // Para part2
