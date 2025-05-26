@@ -30,7 +30,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_arriba.json'
+  path: 'recursos/anim_corazon.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part2 .animation-bottom'),
