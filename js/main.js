@@ -28,7 +28,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_corazon.json'
+  path: 'recursos/anim_dormir.json' // Asegúrate de tener esta animación
 });
 lottie.loadAnimation({
   container: document.querySelector('#part2 .animation-bottom'),
@@ -43,10 +43,25 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_eyes.json'
+  path: 'recursos/anim_corazon.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part3 .animation-bottom'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/indicador.json'
+});
+// Para part4
+lottie.loadAnimation({
+  container: document.querySelector('#part4 .animation-top'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_eyes.json'
+});
+lottie.loadAnimation({
+  container: document.querySelector('#part4 .animation-bottom'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
@@ -83,6 +98,9 @@ function startStory() {
   const diffTime = now - birthDate;
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
   document.getElementById("daysLived").innerText = diffDays.toLocaleString();
+
+  const diasDormido = Math.floor(diffDays / 3); // Suponiendo 8h al día
+document.getElementById("diasDormido").innerText = diasDormido.toLocaleString();
 
   // Mostrar partes
   document.querySelectorAll(".story").forEach(el => el.classList.remove("hidden"));
