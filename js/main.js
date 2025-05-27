@@ -67,6 +67,21 @@ lottie.loadAnimation({
   autoplay: true,
   path: 'recursos/indicador.json'
 });
+// Para part5
+lottie.loadAnimation({
+  container: document.querySelector('#part5 .animation-top'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_eyes.json'
+});
+lottie.loadAnimation({
+  container: document.querySelector('#part5 .animation-bottom'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/indicador.json'
+});
 
 let birthDateGlobal;
 const avgBeatsPerSecond = 100000 / (24 * 60 * 60); // Aprox. 1.157 latidos/segundo
