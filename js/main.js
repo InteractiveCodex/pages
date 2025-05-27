@@ -43,7 +43,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_ojos.json'
+  path: 'recursos/anim_eyes.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part3 .animation-bottom'),
