@@ -52,31 +52,31 @@ lottie.loadAnimation({
   autoplay: true,
   path: 'recursos/indicador.json'
 });
-// Para part4
-lottie.loadAnimation({
-  container: document.querySelector('#part4 .animation-top'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'recursos/anim_eyes.json'
-});
-lottie.loadAnimation({
-  container: document.querySelector('#part4 .animation-bottom'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'recursos/indicador.json'
-});
 // Para part5
 lottie.loadAnimation({
   container: document.querySelector('#part5 .animation-top'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_world.json'
+  path: 'recursos/anim_eyes.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part5 .animation-bottom'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/indicador.json'
+});
+// Para part6
+lottie.loadAnimation({
+  container: document.querySelector('#part6 .animation-top'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_world.json'
+});
+lottie.loadAnimation({
+  container: document.querySelector('#part6 .animation-bottom'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
