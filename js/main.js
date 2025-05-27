@@ -45,6 +45,21 @@ lottie.loadAnimation({
   autoplay: true,
   path: 'recursos/anim_corazon.json'
 });
+// Para part4
+lottie.loadAnimation({
+  container: document.querySelector('#part4 .animation-top'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_da.json'
+});
+lottie.loadAnimation({
+  container: document.querySelector('#part4 .animation-bottom'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/indicador.json'
+});
 lottie.loadAnimation({
   container: document.querySelector('#part3 .animation-bottom'),
   renderer: 'svg',
