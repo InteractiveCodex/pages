@@ -58,7 +58,7 @@ const avgBeatsPerSecond = 100000 / (24 * 60 * 60); // Aprox. 1.157 latidos/segun
 let beatsContador = 0;
 let lastUpdate = 0;
 
-const avgBlinksPerSecond = 16 / 60; // 16 parpadeos por minuto ≈ 0.266 por segundo
+const avgBlinksPerSecond = 18 / 60; // 18 parpadeos por minuto ≈ 0.266 por segundo
 let blinkContador = 0;
 
 
