@@ -6,7 +6,6 @@ lottie.loadAnimation({
   autoplay: true,
   path: 'recursos/anim_person.json'
 });
-
 // Animaciones para historia
 // Para part1
 lottie.loadAnimation({
@@ -23,7 +22,6 @@ lottie.loadAnimation({
   autoplay: true,
   path: 'recursos/indicador.json'
 });
-
 // Para part2
 lottie.loadAnimation({
   container: document.querySelector('#part2 .animation-top'),
@@ -39,11 +37,30 @@ lottie.loadAnimation({
   autoplay: true,
   path: 'recursos/indicador.json'
 });
+// Para part3
+lottie.loadAnimation({
+  container: document.querySelector('#part3 .animation-top'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_ojos.json'
+});
+lottie.loadAnimation({
+  container: document.querySelector('#part3 .animation-bottom'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/indicador.json'
+});
 
 let birthDateGlobal;
 const avgBeatsPerSecond = 100000 / (24 * 60 * 60); // Aprox. 1.157 latidos/segundo
 let beatsContador = 0;
 let lastUpdate = 0;
+
+const avgBlinksPerSecond = 16 / 60; // 16 parpadeos por minuto ≈ 0.266 por segundo
+let blinkContador = 0;
+
 
 function startStory() {
   const day = parseInt(document.getElementById("day").value, 10);
@@ -72,7 +89,12 @@ function startStory() {
 
   // Preparar contador de latidos
   beatsContador = Math.floor((now - birthDate) / 1000 * avgBeatsPerSecond);
+  // Preparar contador de parpadeos
+  blinkContador = Math.floor((now - birthDate) / 1000 * avgBlinksPerSecond);
   lastUpdate = performance.now();
+
+
+
 
   animateBeats(); // Comenzar animación
 
@@ -86,9 +108,14 @@ function animateBeats() {
   const elapsed = (now - lastUpdate) / 1000; // en segundos
   lastUpdate = now;
 
-  // Incremento fluido
+  // Latidos
   beatsContador += avgBeatsPerSecond * elapsed;
   document.getElementById("latidos").innerText = Math.floor(beatsContador).toLocaleString();
 
+  // Parpadeos
+  blinkContador += avgBlinksPerSecond * elapsed;
+  document.getElementById("parpadeos").innerText = Math.floor(blinkContador).toLocaleString();
+
   requestAnimationFrame(animateBeats);
 }
+
