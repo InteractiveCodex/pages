@@ -62,7 +62,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_celulas.json'
+  path: 'recursos/anim_celu.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part4 .animation-bottom'),
@@ -98,22 +98,6 @@ lottie.loadAnimation({
 });
 lottie.loadAnimation({
   container: document.querySelector('#part6 .animation-bottom'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'recursos/indicador.json'
-});
-
-// Part7 (Células)
-lottie.loadAnimation({
-  container: document.querySelector('#part7 .animation-top'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'recursos/anim_celulas.json'
-});
-lottie.loadAnimation({
-  container: document.querySelector('#part7 .animation-bottom'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
