@@ -62,7 +62,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_celu.json'
+  path: 'recursos/anim_celulas.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part4 .animation-bottom'),
