@@ -83,6 +83,23 @@
   height: 250px;
 }
 
+    #part4 .animation-top {
+  position: relative;
+  z-index: 1;
+}
+
+#part4 .animation-top::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
+  height: 270px;
+  background: white;
+  border-radius: 50%;
+  z-index: 0;
+}
 
   </style>
 
