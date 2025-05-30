@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stats de vida</title>
+  <!-- Ícono de la pestaña -->
   <link rel="icon" href="recursos/corazon.png" type="image/png">
 
   <style>
+    /* Estilos globales */
     * { box-sizing: border-box; }
 
     body {
@@ -17,6 +19,7 @@
       scroll-behavior: smooth;
     }
 
+    /* Secciones principales */
     .section {
       min-height: 100vh;
       padding: 4rem 2rem;
@@ -26,18 +29,18 @@
       text-align: center;
     }
 
+    /* Estilo para la sección de introducción */
+    .intro {
+      background: linear-gradient(to bottom, #000, #222);
+    }
 
-.intro {
-  background: linear-gradient(to bottom, #000, #222);
-}
-
-    
-
+    /* Estilo común para las secciones de historia */
     .story {
       background: #222;
       border-top: 1px solid #333;
     }
 
+    /* Estilos para inputs y botones */
     input, button {
       padding: 1rem;
       font-size: 1rem;
@@ -53,10 +56,12 @@
       cursor: pointer;
     }
 
+    /* Clase para ocultar elementos */
     .hidden {
       display: none;
     }
 
+    /* Contenedor de los inputs para la fecha personalizada */
     #custom-date-input {
       display: flex;
       gap: 0.2rem;
@@ -65,35 +70,38 @@
       margin-bottom: 1rem;
     }
 
+    /* Inputs de día, mes y año */
     #custom-date-input input {
       width: 90px;
       text-align: center;
     }
 
+    /* Título principal de la intro */
     .intro h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-.resaltado {
-  color: #00ffff;
-  font-weight: bold;
-}
+    /* Texto resaltado en color */
+    .resaltado {
+      color: #00ffff;
+      font-weight: bold;
+    }
 
+    /* Contenedores para las animaciones */
     .animation-top, .animation-bottom {
-  margin: 2rem auto;
-  width: 250px;
-  height: 250px;
-}
-
-
-    
+      margin: 2rem auto;
+      width: 250px;
+      height: 250px;
+    }
   </style>
 
+  <!-- Librería Lottie para animaciones -->
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 </head>
 
 <body>
+  <!-- Sección de introducción donde el usuario ingresa su fecha -->
   <section class="section intro">
     <div id="lottie-container" style="width: 250px; height: 250px; margin: 0 auto 2rem;"></div>
     <h1>Introduce tu fecha de nacimiento</h1>
@@ -103,19 +111,21 @@
       <input type="number" id="year" placeholder="Año" min="1900" max="2100" />
     </div>
 
+    <!-- Botón para iniciar la historia -->
     <button onclick="startStory()">Comenzar</button>
   </section>
 
-<section class="section story hidden" id="part1">
-  <div class="animation-top" style="width: 250px; height: 250px; margin: 0 auto 1rem;"></div>
-  <h2>Desde el momento en que llegaste al mundo, han pasado <span id="daysLived" class="resaltado">0</span> días llenos de historias por contar.</h2>
-  <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
-</section>
+  <!-- Secciones de historia, ocultas inicialmente -->
+  <section class="section story hidden" id="part1">
+    <div class="animation-top" style="width: 250px; height: 250px; margin: 0 auto 1rem;"></div>
+    <h2>Desde el momento en que llegaste al mundo, han pasado <span id="daysLived" class="resaltado">0</span> días llenos de historias por contar.</h2>
+    <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
+  </section>
 
-      <section class="section story hidden" id="part2">
- <div class="animation-top" style="width: 170px; height: 170px; margin: 0 auto 1rem;"></div>
-  <h2>En todo ese tiempo, tu cuerpo ha descansado cerca de <span id="diasDormido" class="resaltado">0</span> días.</h2>
-  <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
+  <section class="section story hidden" id="part2">
+    <div class="animation-top" style="width: 170px; height: 170px; margin: 0 auto 1rem;"></div>
+    <h2>En todo ese tiempo, tu cuerpo ha descansado cerca de <span id="diasDormido" class="resaltado">0</span> días.</h2>
+    <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
   </section>
 
   <section class="section story hidden" id="part3">
@@ -124,24 +134,24 @@
     <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
   </section>
 
-          <section class="section story hidden" id="part4">
+  <section class="section story hidden" id="part4">
     <div class="animation-top" style="width: 170px; height: 170px; margin: 0 auto 1rem;"></div>
     <h2>Tu cuerpo ha regenerado más de <span id="celulas" class="resaltado">X</span> células desde que naciste. Nada en ti es el mismo que cuando llegaste..</h2>
     <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
   </section>
 
-<section class="section story hidden" id="part5">
-  <div class="animation-top" style="width: 160px; height: 160px; margin: 0 auto 1rem;"></div>
-  <h2>Tus ojos han visto tanto… han parpadeado unas <span id="parpadeos" class="resaltado">0</span> veces para ayudarte a observar.</h2>
-  <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
-</section>
+  <section class="section story hidden" id="part5">
+    <div class="animation-top" style="width: 160px; height: 160px; margin: 0 auto 1rem;"></div>
+    <h2>Tus ojos han visto tanto… han parpadeado unas <span id="parpadeos" class="resaltado">0</span> veces para ayudarte a observar.</h2>
+    <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
+  </section>
 
   <section class="section story hidden" id="part6">
-  <div class="animation-top" style="width: 200px; height: 200px; margin: 0 auto 1rem;"></div>
-  <h2>Has cambiado con el tiempo, y el mundo ha cambiado contigo.</h2>
-  <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
-</section>
-  
+    <div class="animation-top" style="width: 200px; height: 200px; margin: 0 auto 1rem;"></div>
+    <h2>Has cambiado con el tiempo, y el mundo ha cambiado contigo.</h2>
+    <div class="animation-bottom" style="width: 150px; height: 150px; margin: 1rem auto 0;"></div>
+  </section>
+
   <section class="section story hidden" id="part7">
     <h2>Has llegado al final (por ahora). Estamos trabajando en nuevas fases.</h2>
     <p>Lo mejor aún está por escribirse.</p>
