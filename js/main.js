@@ -120,9 +120,11 @@ function startStory() {
   const month = parseInt(document.getElementById("month").value, 10);
   const year = parseInt(document.getElementById("year").value, 10);
 
-  if (!day || !month || !year) {
-    return alert("Por favor introduce una fecha completa.");
-  }
+const errorEl = document.getElementById("error-message");
+if (!day || !month || !year) {
+  errorEl.innerText = "Por favor introduce una fecha completa.";
+  return;
+}
 
   const birthDate = new Date(year, month - 1, day);
   const now = new Date();
