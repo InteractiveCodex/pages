@@ -134,6 +134,8 @@ if (birthDate > now || isNaN(birthDate.getTime())) {
   return;
 }
 
+  errorEl.innerText = "";
+
   birthDateGlobal = birthDate;
 
   const diffTime = now - birthDate;
