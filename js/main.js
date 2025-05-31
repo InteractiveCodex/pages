@@ -129,9 +129,10 @@ if (!day || !month || !year) {
   const birthDate = new Date(year, month - 1, day);
   const now = new Date();
 
-  if (birthDate > now || isNaN(birthDate.getTime())) {
-    return alert("Introduce una fecha válida del pasado.");
-  }
+if (birthDate > now || isNaN(birthDate.getTime())) {
+  errorEl.innerText = "Introduce una fecha válida del pasado.";
+  return;
+}
 
   birthDateGlobal = birthDate;
 
