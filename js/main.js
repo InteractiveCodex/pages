@@ -121,8 +121,10 @@ function startStory() {
   const year = parseInt(document.getElementById("year").value, 10);
 
   const errorEl = document.getElementById("error-message");
+
   if (!day || !month || !year) {
     errorEl.innerText = "Por favor introduce una fecha completa.";
+    errorEl.style.opacity = 1;
     return;
   }
 
@@ -131,10 +133,13 @@ function startStory() {
 
   if (birthDate > now || isNaN(birthDate.getTime())) {
     errorEl.innerText = "Introduce una fecha válida del pasado.";
+    errorEl.style.opacity = 1;
     return;
   }
 
+  // Ocultar error si todo está bien
   errorEl.innerText = "";
+  errorEl.style.opacity = 0;
 
   birthDateGlobal = birthDate;
 
