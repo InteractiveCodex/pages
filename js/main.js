@@ -124,7 +124,7 @@ function startStory() {
 
   if (!day || !month || !year) {
     errorEl.innerText = "Por favor introduce una fecha completa.";
-    errorEl.style.opacity = 1;
+    errorEl.classList.add("visible");
     return;
   }
 
@@ -133,13 +133,13 @@ function startStory() {
 
   if (birthDate > now || isNaN(birthDate.getTime())) {
     errorEl.innerText = "Introduce una fecha válida del pasado.";
-    errorEl.style.opacity = 1;
+    errorEl.classList.add("visible");
     return;
   }
 
   // Ocultar error si todo está bien
   errorEl.innerText = "";
-  errorEl.style.opacity = 0;
+  errorEl.classList.remove("visible");
 
   birthDateGlobal = birthDate;
 
