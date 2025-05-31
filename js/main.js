@@ -120,19 +120,19 @@ function startStory() {
   const month = parseInt(document.getElementById("month").value, 10);
   const year = parseInt(document.getElementById("year").value, 10);
 
-const errorEl = document.getElementById("error-message");
-if (!day || !month || !year) {
-  errorEl.innerText = "Por favor introduce una fecha completa.";
-  return;
-}
+  const errorEl = document.getElementById("error-message");
+  if (!day || !month || !year) {
+    errorEl.innerText = "Por favor introduce una fecha completa.";
+    return;
+  }
 
   const birthDate = new Date(year, month - 1, day);
   const now = new Date();
 
-if (birthDate > now || isNaN(birthDate.getTime())) {
-  errorEl.innerText = "Introduce una fecha válida del pasado.";
-  return;
-}
+  if (birthDate > now || isNaN(birthDate.getTime())) {
+    errorEl.innerText = "Introduce una fecha válida del pasado.";
+    return;
+  }
 
   errorEl.innerText = "";
 
