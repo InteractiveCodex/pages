@@ -8,14 +8,40 @@ lottie.loadAnimation({
 });
 
 // Animaciones para historia
-// Part1
-lottie.loadAnimation({
-  container: document.querySelector('#part1 .animation-top'),
+// Alternancia de animaciones sol-luna en part1
+const sunAnim = lottie.loadAnimation({
+  container: document.getElementById('sunAnimation'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_day.json'
+  path: 'recursos/anim_sun.json' // Cambia si tu archivo tiene otro nombre
 });
+
+const moonAnim = lottie.loadAnimation({
+  container: document.getElementById('moonAnimation'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'recursos/anim_moon.json' // Cambia si tu archivo tiene otro nombre
+});
+
+let showingSun = true;
+
+setInterval(() => {
+  const sunEl = document.getElementById('sunAnimation');
+  const moonEl = document.getElementById('moonAnimation');
+
+  if (showingSun) {
+    sunEl.classList.add('hidden');
+    moonEl.classList.remove('hidden');
+  } else {
+    moonEl.classList.add('hidden');
+    sunEl.classList.remove('hidden');
+  }
+
+  showingSun = !showingSun;
+}, 6000); // Cambia cada 6 segundos (ajustable)
+
 lottie.loadAnimation({
   container: document.querySelector('#part1 .animation-bottom'),
   renderer: 'svg',
