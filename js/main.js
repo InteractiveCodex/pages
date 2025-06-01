@@ -221,17 +221,12 @@ storySections.forEach((section, index) => {
       toggleScrollLock(true);
 
       // Scroll a la siguiente sección
-      const nextSection = storySections[index + 1];
-      nextSection.scrollIntoView({ behavior: 'smooth' });
+      storySections[index + 1].scrollIntoView({ behavior: 'smooth' });
 
-      // Esperamos el tiempo del scroll (800ms aprox) para desbloquear y animar
+      // Esperamos el tiempo del scroll (estimado) para desbloquear el scroll
+      // 800ms suele estar bien para smooth scroll, ajusta si quieres
       setTimeout(() => {
         toggleScrollLock(false);
-
-        // ✅ Añadimos clases de animación a los elementos de la siguiente sección
-        nextSection.querySelector('.animation-top')?.classList.add('animate-top');
-        nextSection.querySelector('.animation-bottom')?.classList.add('animate-bottom');
-        nextSection.querySelector('h2')?.classList.add('animate-text'); // Cambia 'h2' si tu texto tiene otra clase o tag
       }, 800);
     });
   }
