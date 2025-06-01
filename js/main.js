@@ -14,7 +14,7 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'recursos/anim_day.json'
+  path: 'recursos/anim_sol_y_luna.json'
 });
 lottie.loadAnimation({
   container: document.querySelector('#part1 .animation-bottom'),
