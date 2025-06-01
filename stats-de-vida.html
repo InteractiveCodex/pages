@@ -29,11 +29,13 @@
       text-align: center;
     }
 
-.section.intro {
-  justify-content: flex-start;
+
+    .section.intro {
+  min-height: auto; /* Elimina el 100vh solo en intro */
+  display: block;    /* Ya no necesitas flex aquí */
   padding-top: 2rem;
-  padding-bottom: 0rem;
-    background: red;
+       padding-bottom: 0rem;
+  background: red;   /* Para ver los bordes mientras pruebas */
 }
 
 
