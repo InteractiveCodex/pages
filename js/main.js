@@ -193,36 +193,41 @@ function animateBeats() {
 
 
 
-// // Función para bloquear y desbloquear scroll temporalmente (ya no necesaria)
-// function toggleScrollLock(lock) {
-//   if (lock) {
-//     document.body.style.overflow = 'hidden';
-//   } else {
-//     document.body.style.overflow = '';
-//   }
-// }
+// Función para bloquear y desbloquear scroll
+function toggleScrollLock(lock) {
+  if (lock) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
 
 const storySections = Array.from(document.querySelectorAll('.story'));
 
+// Añadimos event listeners a cada animation-bottom dentro de las story
 storySections.forEach((section, index) => {
   const animBottom = section.querySelector('.animation-bottom');
   if (animBottom) {
-    animBottom.style.cursor = 'pointer'; // Mostrar que es interactivo
+    animBottom.style.cursor = 'pointer'; // Cambio cursor para indicar que es clickable
 
     animBottom.addEventListener('click', () => {
-      // Si es la última sección, no hacer nada
-      if (index === storySections.length - 1) return;
+      // Si es la última sección no hacemos scroll a ninguna
+      if (index === storySections.length - 1) {
+        // Opcional: puedes hacer algo aquí si quieres
+        return;
+      }
 
-      // --- Para volver a permitir scroll, descomentar esto:
-      // toggleScrollLock(true); // Bloquear scroll durante el desplazamiento
+      // Bloquear scroll
+      toggleScrollLock(true);
 
-      // Desplazarse suavemente a la siguiente sección
+      // Scroll a la siguiente sección
       storySections[index + 1].scrollIntoView({ behavior: 'smooth' });
 
-      // --- Desbloqueo temporal del scroll (si decides reactivarlo)
-      // setTimeout(() => {
-      //   toggleScrollLock(false);
-      // }, 800); // Espera aproximada de la animación
+      // Esperamos el tiempo del scroll (estimado) para desbloquear el scroll
+      // 800ms suele estar bien para smooth scroll, ajusta si quieres
+      setTimeout(() => {
+        toggleScrollLock(false);
+      }, 800);
     });
   }
 });
