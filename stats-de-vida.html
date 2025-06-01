@@ -82,7 +82,7 @@
 
     /* Texto con color destacado */
     .resaltado {
-      color: #48a9ff;
+      color: #48a9ff; /* Azul */
       font-weight: bold;
     }
 
@@ -95,11 +95,11 @@
 
     /* Estilos para el mensaje de error */
     #error-message {
-      color: #ff4d4d;          /* Rojo para errores */
+      color: #ff4d4d; /* Rojo */
       font-size: 1.5rem;
       margin-bottom: 1rem;
       transition: opacity 0.5s ease;
-      opacity: 0;              /* Oculto inicialmente */
+      opacity: 0; /* Oculto inicialmente */
       height: 0;
       overflow: hidden;
     }
@@ -111,12 +111,12 @@
     }
   </style>
 
-  <!-- Librería Lottie para animaciones SVG -->
+  <!-- Librería Lottie -->
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 </head>
 
 <body>
-  <!-- Sección de introducción: aquí el usuario introduce su fecha de nacimiento -->
+  <!-- Sección de introducción -->
   <section class="section intro">
     <!-- Contenedor para animación Lottie -->
     <div id="lottie-container" style="width: 250px; height: 250px; margin: 0 auto 2rem;"></div>
@@ -133,7 +133,7 @@
       <input type="number" id="year" placeholder="Año" min="1900" max="2100" />
     </div>
 
-    <!-- Botón que inicia la historia llamando a la función startStory() -->
+    <!-- Botón que inicia la historia -->
     <button onclick="startStory()">Comenzar</button>
   </section>
 
