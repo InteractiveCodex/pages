@@ -110,23 +110,6 @@
       opacity: 1;
       height: auto;
     }
-    .anim-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 1s ease, transform 1s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.anim-item.hidden {
-  opacity: 0;
-  transform: translateY(100px);
-  pointer-events: none;
-}
-
   </style>
 
   <!-- Librería Lottie -->
@@ -157,11 +140,7 @@
 
   <!-- Sección 1 -->
   <section class="section story hidden" id="part1">
-    <div class="animation-top rotating-animations" style="position: relative; width: 270px; height: 270px; margin: 0 auto 1rem;">
-  <div id="sunAnimation" class="anim-item"></div>
-  <div id="moonAnimation" class="anim-item hidden"></div>
-</div>
-
+    <div class="animation-top" style="width: 270px; height: 270px; margin: 0 auto 1rem;"></div>
     <h2>
       Desde el momento en que llegaste al mundo, han pasado
       <span id="daysLived" class="resaltado">0</span>
