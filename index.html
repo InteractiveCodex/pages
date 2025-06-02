@@ -104,55 +104,18 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    .seccion {
-  margin-bottom: 4rem;
-  text-align: center;
-}
-
-.separador {
-  width: 60%;
-  height: 2px;
-  background: var(--primario);
-  opacity: 0.3;
-  margin: 2rem auto;
-  transition: var(--transicion);
-}
-
-body.oscuro .separador {
-  background: var(--texto-oscuro);
-  opacity: 0.2;
-}
-
   </style>
 </head>
 <body>
   <button class="boton-tema" onclick="cambiarTema()">Modo Oscuro</button>
-
-  <!-- Sección 1: Encabezado con tu nombre -->
-  <section class="seccion">
-    <h1>Tu Nombre Aquí</h1>
-    <p>Desarrollador Web & Apps</p>
-  </section>
-
-  <!-- Separador -->
-  <div class="separador"></div>
-
-  <!-- Sección 2: Proyectos -->
-  <section class="seccion">
-    <h2>Mis Proyectos</h2>
-    <p>Explora mis creaciones de Android, Web y Mini Juegos</p>
-    <div class="proyectos">
-      <div class="proyecto">💻 Stats de vida</div>
-      <div class="proyecto">💻 Apps Android</div>
-      <div class="proyecto">💻 Addons para WoW Classic</div>
-      <!-- Más proyectos aquí -->
-    </div>
-  </section>
-
-  <!-- Aquí podrías añadir más secciones similares -->
-  <!-- <div class="separador"></div> -->
-  <!-- <section class="seccion"> ... </section> -->
+  <h1>Mis Proyectos</h1>
+  <p>Explora mis creaciones de Android, Web y Mini Juegos</p>
+  <div class="proyectos">
+    <div class="proyecto">💻 Stats de vida</div>
+    <div class="proyecto">💻 Apps Android</div>
+    <div class="proyecto">💻 Addons para WoW Classic</div>
+    <!-- Más proyectos aquí -->
+  </div>
 
   <script>
     const botonTema = document.querySelector('.boton-tema');
@@ -162,5 +125,4 @@ body.oscuro .separador {
     }
   </script>
 </body>
-
 </html>
