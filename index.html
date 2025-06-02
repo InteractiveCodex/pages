@@ -104,21 +104,6 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    /* Lottie abajo del todo */
-    #lottie-container {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-      z-index: 1000;
-    }
-
-    #lottie-container svg {
-      height: 150px;
-    }
   </style>
 </head>
 <body>
@@ -129,29 +114,15 @@
     <div class="proyecto">💻 Stats de vida</div>
     <div class="proyecto">💻 Apps Android</div>
     <div class="proyecto">💻 Addons para WoW Classic</div>
+    <!-- Más proyectos aquí -->
   </div>
 
-  <!-- Contenedor de Lottie -->
-  <div id="lottie-container"></div>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/lottie-web@5.12.0/build/player/lottie.min.js"></script>
-<script>
-  const botonTema = document.querySelector('.boton-tema');
-  function cambiarTema() {
-    document.body.classList.toggle('oscuro');
-    botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
-  }
-
-  // Cargar animación Lottie desde carpeta local
-  lottie.loadAnimation({
-    container: document.getElementById('lottie-container'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'recursos/anim_tema.json' // Ruta local a tu archivo .json
-  });
-</script>
-
+  <script>
+    const botonTema = document.querySelector('.boton-tema');
+    function cambiarTema() {
+      document.body.classList.toggle('oscuro');
+      botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
+    }
+  </script>
 </body>
 </html>
