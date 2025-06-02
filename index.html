@@ -136,10 +136,21 @@ body.oscuro .separador {
 
   <script>
     const botonTema = document.querySelector('.boton-tema');
+
+    // Detectar modo preferido del sistema
+    const temaSistemaOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+   // Aplicar al cargar
+    if (temaSistemaOscuro) {
+      document.body.classList.add('oscuro');
+      botonTema.textContent = 'Modo Claro';
+    }
+
     function cambiarTema() {
       document.body.classList.toggle('oscuro');
       botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
     }
+    
   </script>
 </body>
 </html>
