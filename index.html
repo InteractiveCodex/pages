@@ -104,6 +104,20 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    .separador {
+  width: 60%;
+  height: 2px;
+  background: var(--primario);
+  opacity: 0.3;
+  margin: 2rem auto;
+  transition: var(--transicion);
+}
+
+body.oscuro .separador {
+  background: var(--texto-oscuro);
+  opacity: 0.2;
+}
   </style>
 </head>
 <body>
