@@ -39,17 +39,17 @@
       color: var(--texto-oscuro);
     }
 
-.boton-tema {
-  margin: 2rem auto;
-  padding: 0.5rem 1rem;
-  border: none;
-  background: var(--primario);
-  color: white;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: var(--transicion);
-  display: block;
-}
+    .boton-tema {
+      margin: 2rem auto;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: var(--primario);
+      color: white;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: var(--transicion);
+      display: block;
+    }
 
     h1 {
       font-size: 2.5rem;
@@ -106,60 +106,60 @@
     }
 
     .separador {
-  width: 60%;
-  height: 2px;
-  background: var(--primario);
-  opacity: 0.3;
-  margin: 2rem auto;
-  transition: var(--transicion);
-}
+      width: 60%;
+      height: 2px;
+      background: var(--primario);
+      opacity: 0.3;
+      margin: 2rem auto;
+      transition: var(--transicion);
+    }
 
-body.oscuro .separador {
-  background: var(--texto-oscuro);
-  opacity: 0.2;
-}   
+    body.oscuro .separador {
+      background: var(--texto-oscuro);
+      opacity: 0.2;
+    }
 
     .proyectos.arriba {
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: nowrap;
-}
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
 
-.proyectos.arriba .proyecto {
-  flex: 1;
-  text-align: center;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
+    .proyectos.arriba .proyecto {
+      flex: 1;
+      text-align: center;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
 
-    <h1>Javier DevZone</h1>
+  <h1>Javier DevZone</h1>
   <p>Descubre mis proyectos de desarrollo</p>
-<div class="proyectos arriba">
-  <div class="proyecto" onclick="">💻 Proyectos</div>
-  <div class="proyecto" onclick="">💻 Contacto</div>
-</div>
 
-    <button class="boton-tema" onclick="cambiarTema()">Modo Oscuro</button>
+  <div class="proyectos arriba">
+    <div class="proyecto" onclick="">💻 Proyectos</div>
+    <div class="proyecto" onclick="">💻 Contacto</div>
+  </div>
 
-      <!-- Separador -->
+  <button class="boton-tema" onclick="cambiarTema()">Modo Oscuro</button>
+
+  <!-- Separador -->
   <div class="separador"></div>
-  
+
   <h1>Mis Proyectos</h1>
   <p>Explora mis creaciones de Android, Web y Mini Juegos</p>
-<div class="proyectos">
-  <div class="proyecto" onclick="window.location.href='stats-de-vida.html'">💻 Stats de vida</div>
-  <div class="proyecto" onclick="alert('Abriendo Apps Android...')">💻 Apps Android</div>
-  <div class="proyecto" onclick="alert('Abriendo Addons para WoW Classic...')">💻 Addons para WoW Classic</div>
-</div>
 
-    <!-- Separador -->
+  <div class="proyectos">
+    <div class="proyecto" onclick="window.location.href='stats-de-vida.html'">💻 Stats de vida</div>
+    <div class="proyecto" onclick="alert('Abriendo Apps Android...')">💻 Apps Android</div>
+    <div class="proyecto" onclick="alert('Abriendo Addons para WoW Classic...')">💻 Addons para WoW Classic</div>
+  </div>
+
+  <!-- Separador -->
   <div class="separador"></div>
 
   <script>
@@ -167,8 +167,8 @@ body.oscuro .separador {
 
     // Detectar modo preferido del sistema
     const temaSistemaOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-   // Aplicar al cargar
+
+    // Aplicar al cargar
     if (temaSistemaOscuro) {
       document.body.classList.add('oscuro');
       botonTema.textContent = 'Modo Claro';
@@ -178,7 +178,7 @@ body.oscuro .separador {
       document.body.classList.toggle('oscuro');
       botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
     }
-    
   </script>
+
 </body>
 </html>
