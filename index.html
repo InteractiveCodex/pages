@@ -186,6 +186,12 @@
       document.body.classList.toggle('oscuro');
       botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
     }
+
+    // Forzar el scroll al tope (arriba del todo) cada vez que se recarga la página
+    window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+   };
+    
   </script>
 
 </body>
