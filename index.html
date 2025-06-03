@@ -48,7 +48,12 @@
       transition: var(--transicion);
       cursor: pointer;
       transform: scale(1);
+      color: var(--texto-claro);
       animation: aparecer 1s ease forwards;
+    }
+
+    body.oscuro .boton-tema {
+      color: var(--texto-oscuro);
     }
 
     .boton-tema:hover {
