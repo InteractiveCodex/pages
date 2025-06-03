@@ -40,15 +40,15 @@
     }
 
     .boton-tema {
-      margin: 2rem auto;
-      padding: 0.5rem 1rem;
-      border: none;
-      background: var(--primario);
-      color: white;
-      border-radius: 0.5rem;
-      cursor: pointer;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       transition: var(--transicion);
-      display: block;
+      cursor: pointer;
+      transform: scale(1);
+      animation: aparecer 1s ease forwards;
     }
 
     h1 {
