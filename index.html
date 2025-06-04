@@ -146,10 +146,25 @@
       margin: 2rem auto;
       transition: var(--transicion);
     }
-  
+    
     body.oscuro .separador-vertical {
       background: var(--texto-oscuro);
       opacity: 0.2;
+    }
+    
+    /* Estilo para la animación de transición de tema */
+    .tema-transicion {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--fondo-oscuro);
+      clip-path: circle(0% at 0 0);
+      transition: clip-path 0.6s ease-in-out;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
     }
 
   </style>
@@ -194,27 +209,45 @@
   <!-- Separador -->
   <div class="separador"></div>
 
+    <!-- Div para la animación circular -->
+  <div class="tema-transicion" id="transicion"></div>
+
   <script>
     const botonTema = document.querySelector('.boton-tema');
+    const transicion = document.getElementById('transicion');
 
-    // Detectar modo preferido del sistema
+    // Detectar modo oscuro del sistema
     const temaSistemaOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    // Aplicar al cargar
     if (temaSistemaOscuro) {
       document.body.classList.add('oscuro');
-      botonTema.textContent = 'Modo Claro';
+      botonTema.textContent = 'Cambiar a Claro';
     }
 
-    function cambiarTema() {
-      document.body.classList.toggle('oscuro');
-      botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
+    function cambiarTema(event) {
+      const x = event.clientX;
+      const y = event.clientY;
+
+      const modoOscuroNuevo = !document.body.classList.contains('oscuro');
+      transicion.style.backgroundColor = modoOscuroNuevo ? 'var(--fondo-oscuro)' : 'var(--fondo-claro)';
+      transicion.style.clipPath = `circle(0% at ${x}px ${y}px)`;
+      transicion.style.display = 'block';
+
+      void transicion.offsetWidth;
+
+      transicion.style.clipPath = `circle(150% at ${x}px ${y}px)`;
+
+      setTimeout(() => {
+        document.body.classList.toggle('oscuro');
+        botonTema.textContent = document.body.classList.contains('oscuro') ? 'Cambiar a Claro' : 'Cambiar a Oscuro';
+        transicion.style.display = 'none';
+      }, 600);
     }
 
     // Forzar el scroll al tope (arriba del todo) cada vez que se recarga la página
     //window.onbeforeunload = function () {
     //window.scrollTo(0, 0);
-   //};
+    //};
     
   </script>
 
