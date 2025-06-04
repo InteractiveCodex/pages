@@ -152,25 +152,8 @@
       opacity: 0.2;
     }
 
-    .tema-transicion {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: var(--fondo-oscuro); /* cambiará dinámicamente */
-      clip-path: circle(0% at 0 0);
-      transition: clip-path 0.6s ease-in-out;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-
   </style>
 </head>
-
-  <div class="tema-transicion" id="transicion"></div>
-
 <body>
 
   <h1>Imagina hoy, construye mañana</h1>
@@ -223,32 +206,10 @@
       botonTema.textContent = 'Modo Claro';
     }
 
-function cambiarTema(event) {
-  const transicion = document.getElementById('transicion');
-  const x = event.clientX;
-  const y = event.clientY;
-
-  // Cambia el color de fondo del círculo dependiendo del modo actual
-  const nuevoModoOscuro = !document.body.classList.contains('oscuro');
-  transicion.style.backgroundColor = nuevoModoOscuro ? 'var(--fondo-oscuro)' : 'var(--fondo-claro)';
-
-  // Posición del clic
-  transicion.style.clipPath = `circle(0% at ${x}px ${y}px)`;
-  transicion.style.display = 'block';
-
-  // Fuerza el reflow para reiniciar la animación
-  void transicion.offsetWidth;
-
-  // Expande el círculo
-  transicion.style.clipPath = `circle(150% at ${x}px ${y}px)`;
-
-  // Espera el fin de la animación para cambiar tema
-  setTimeout(() => {
-    document.body.classList.toggle('oscuro');
-    botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
-    transicion.style.display = 'none';
-  }, 600);
-}
+    function cambiarTema() {
+      document.body.classList.toggle('oscuro');
+      botonTema.textContent = document.body.classList.contains('oscuro') ? 'Modo Claro' : 'Modo Oscuro';
+    }
 
     // Forzar el scroll al tope (arriba del todo) cada vez que se recarga la página
     //window.onbeforeunload = function () {
