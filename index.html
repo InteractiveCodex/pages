@@ -242,5 +242,15 @@ body.oscuro .maquina-escribir {
     
   </script>
 
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const titulo = document.querySelector('.maquina-escribir');
+
+    titulo.addEventListener('animationend', () => {
+      titulo.style.borderRight = 'none';
+    });
+  });
+</script>
+
 </body>
 </html>
