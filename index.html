@@ -39,29 +39,37 @@
       color: var(--texto-oscuro);
     }
 
+
+
+    
+    
     .boton-tema {
-      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--texto-claro);
+      transition: var(--transicion);
       width: 300px;
       border: 1px solid #ccc;
       border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      transition: var(--transicion);
       cursor: pointer;
       transform: scale(1);
-      color: var(--texto-claro);
+      padding: 1rem;
       animation: aparecer 1s ease forwards;
     }
 
     body.oscuro .boton-tema {
       color: var(--texto-oscuro);
     }
-
+    
     .boton-tema:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
+
+
+
+    
     h1 {
       font-size: 2.5rem;
       margin-top:4rem;
@@ -84,6 +92,10 @@
       animation: aparecer 1s ease forwards;
     }
 
+
+
+
+    
     .proyectos {
       display: flex;
       flex-direction: column;
@@ -108,6 +120,10 @@
       transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
+
+
+
+    
 
     @keyframes aparecerAbajo {
       from { opacity: 0; transform: translateY(-20px); }
