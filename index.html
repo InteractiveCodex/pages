@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --fondo-claro: #E8EDF3;
+      --fondo-claro: #DDE4ED;
       --fondo-oscuro: #0F172A;
       --texto-claro: #0F172A;
       --texto-oscuro: #F1F5F9;
@@ -130,7 +130,7 @@
       to { opacity: 1; }
     }
 
-    /* Estilo separadores */
+    /* Estilo separador */
     .separador {
       width: 60%;
       height: 2px;
@@ -140,12 +140,13 @@
       transition: var(--transicion);
       animation: aparecer 1s ease forwards;
     }
-
+    
     body.oscuro .separador {
       background: var(--texto-oscuro);
       opacity: 0.2;
     }
-
+    
+    /* Estilo separador vertical */
     .separador-vertical {
       width: 2px;
       height: 20vh;
