@@ -16,8 +16,8 @@
       --primario: #64748B;
       --transicion: all 0.3s ease;
     }
-
-    * {
+    
+    * { /* Estilo base */
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -35,21 +35,13 @@
       justify-content: flex-start;
       padding: 2rem;
     }
-
+    
     body.oscuro {
       background-color: var(--fondo-oscuro);
       color: var(--texto-oscuro);
     }
 
-
-
-    
-
-
-
-
-
-    
+    /* Estilo boton */
     .boton-tema {
       background: rgba(255, 255, 255, 0.1);
       color: var(--texto-claro);
@@ -72,11 +64,8 @@
       transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-
-
-
-
     
+    /* Estilo textos */
     h1 {
       font-size: 2.5rem;
       margin-top:4rem;
@@ -99,10 +88,7 @@
       animation: aparecer 1s ease forwards;
     }
 
-
-
-
-    
+    /* Estilo proyectos */
     .proyectos {
       display: flex;
       flex-direction: column;
@@ -128,10 +114,7 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-
-
-    
-
+    /* Animaciones */
     @keyframes aparecerAbajo {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -147,6 +130,7 @@
       to { opacity: 1; }
     }
 
+    /* Estilo separadores */
     .separador {
       width: 60%;
       height: 2px;
@@ -177,6 +161,13 @@
       opacity: 0.2;
     }
 
+
+
+
+
+
+
+    
 .maquina-escribir {
   display: inline-block;
   overflow: hidden;
