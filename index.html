@@ -102,13 +102,19 @@
       padding: 1rem;
       border: 1px solid #ccc;
       border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(10px);
       transition: var(--transicion);
       cursor: pointer;
       transform: scale(1);
       animation: aparecer 1s ease forwards;
     }
+    
+    body.oscuro .proyecto {
+      background: rgba(255, 255, 255, 0.1); /* un poco más oscuro */
+      border: 1px solid rgba(241, 245, 249, 0.2); /* borde más sutil para oscuro */
+    }
+
 
     .proyecto:hover {
       transform: scale(1.05);
