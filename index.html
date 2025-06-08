@@ -1,278 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --fondo-claro: #f8f8ff;
-      --fondo-oscuro: #0F172A;
-      --texto-claro: #0F172A;
-      --texto-oscuro: #F1F5F9;
-      --separador-claro:#64748B;
-      --separador-oscuro:#F1F5F9;
-      --primario: #64748B;
-      --transicion: all 0.3s ease;
-    }
-    
-    * { /* Estilo base */
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--fondo-claro);
-      color: var(--texto-claro);
-      transition: var(--transicion);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 2rem;
-    }
-    
-    body.oscuro {
-      background-color: var(--fondo-oscuro);
-      color: var(--texto-oscuro);
-    }
-
-    /* Estilo boton */
-    .boton-tema {
-      background: rgba(255, 255, 255, 0.4);
-      color: var(--texto-claro);
-      transition: var(--transicion);
-      width: 300px;
-      border: 1px solid #333;
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      transform: scale(1);
-      padding: 1rem;
-      animation: aparecer 1s ease forwards;
-    }
-
-    body.oscuro .boton-tema {
-      border: 1px solid #CCC;
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--texto-oscuro);
-    }
-    
-    .boton-tema:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Estilo textos */
-    h1 {
-      font-size: 2.5rem;
-      margin-top:4rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      animation: aparecer 1s ease forwards;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      animation: aparecer 1s ease forwards;
-    }
-    
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      animation: aparecer 1s ease forwards;
-    }
-
-    /* Estilo proyectos */
-    .proyectos {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .proyecto {
-      padding: 1rem;
-      border: 1px solid #333;
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(10px);
-      transition: var(--transicion);
-      cursor: pointer;
-      transform: scale(1);
-      animation: aparecer 1s ease forwards;
-    }
-    
-    body.oscuro .proyecto {
-      border: 1px solid #ccc;
-      background: rgba(255, 255, 255, 0.1); /* un poco más oscuro */
-    }
-
-
-    .proyecto:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Animaciones */
-    @keyframes aparecerAbajo {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes aparecerArriba {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes aparecer {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Estilo separador */
-    .separador {
-      width: 60%;
-      height: 2px;
-      background: var(--primario);
-      opacity: 0.3;
-      margin: 2rem auto;
-      transition: var(--transicion);
-      animation: aparecer 1s ease forwards;
-    }
-    
-    body.oscuro .separador {
-      background: var(--texto-oscuro);
-      opacity: 0.2;
-    }
-    
-    /* Estilo separador vertical */
-    .separador-vertical {
-      width: 2px;
-      height: 20vh;
-      background: var(--primario);
-      opacity: 0.3;
-      margin: 2rem auto;
-      transition: var(--transicion);
-      animation: aparecer 1s ease forwards;
-    }
-  
-    body.oscuro .separador-vertical {
-      background: var(--texto-oscuro);
-      opacity: 0.2;
-    }
-
-    /* Estilo escritura automatica */
-    .maquina-escribir {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid var(--texto-claro); /* cursor */
-      animation: escribir 3s steps(30, end) forwards;
-    }
-    
-    body.oscuro .maquina-escribir {
-      border-right: 2px solid var(--texto-oscuro);
-    }
-    
-    @keyframes escribir {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    /* Estilo footer */
-    .footer {
-      margin-top: 3rem;
-      padding: 1rem 0;
-      width: 100%;
-      max-width: 600px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--primario);
-      opacity: 0.7;
-      border-top: 1px solid var(--primario);
-      animation: aparecer 1s ease forwards;
-    }
-    
-    body.oscuro .footer {
-      color: var(--texto-oscuro);
-      border-top: 1px solid var(--texto-oscuro);
-      opacity: 0.5;
-    }
-
-
-
-
-
-
-    
-    .tecnologias {
-  margin-top: 1rem;
-  text-align: center;
-  animation: aparecer 1s ease forwards;
-}
-
-.barra-tecnologias {
-  display: flex;
-  height: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 1rem auto;
-  max-width: 400px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.2);
-}
-
-.barra-tecnologias div {
-  height: 100%;
-}
-
-.barra-tecnologias .html {
-  background-color: #E34F26;
-}
-
-.barra-tecnologias .css {
-  background-color: #264DE4;
-}
-
-.barra-tecnologias .js {
-  background-color: #F0DB4F;
-}
-
-.porcentajes {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  font-size: 0.8rem;
-}
-
-    .circulo {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-  vertical-align: middle;
-}
-
-    
-  </style>
+  <link rel="stylesheet" href="estilos-home.css">
 </head>
+
 <body>
 
   <h1>Imagina hoy, construye mañana</h1>
 
-  <p><snap class="maquina-escribir">Descubre mis proyectos de desarrollo</snap></p>
+  <p>
+    <snap class="maquina-escribir">Descubre mis proyectos de desarrollo</snap>
+  </p>
 
   <div class="separador-vertical"></div>
 
@@ -284,9 +27,24 @@
   <h2>Mis Proyectos Web</h2>
   <p>Explora mis creaciones Web y Mini Juegos</p>
   <div class="proyectos">
-  <div class="proyecto" onclick="window.location.href='stats-de-vida.html'">❤️ Stats de vida</div>
-  <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
-  <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
+      ❤️ Stats de vida
+      <div class="info-extra">
+        <p>Convierte tu vida en estadísticas visuales.</p>
+      </div>
+    </div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
+      💻 Proximamente
+      <div class="info-extra">
+        <p>No disponible actualmente.</p>
+      </div>
+    </div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
+      💻 Proximamente
+      <div class="info-extra">
+        <p>No disponible actualmente.</p>
+      </div>
+    </div>
   </div>
 
   <div class="separador-vertical"></div>
@@ -294,7 +52,12 @@
   <h2>Mis Proyectos Android</h2>
   <p>Explora mis creaciones para Android</p>
   <div class="proyectos">
-  <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 TaskPlanner</div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
+      💻 TaskPlanner
+      <div class="info-extra">
+        <p>Organiza tu tiempo y tareas de forma simple, clara y eficiente.</p>
+      </div>
+    </div>
   </div>
 
   <div class="separador-vertical"></div>
@@ -302,28 +65,33 @@
   <h2>Addons para WoW Classic</h2>
   <p>Explora mis Addons para WoW Classic</p>
   <div class="proyectos">
-  <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 ClassicPlus</div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
+      💻 ClassicPlus
+      <div class="info-extra">
+        <p>Addon completo que mejora la calidad de vida del jugador, con registro detallado de estadísticas y ajustes personalizados.</p>
+      </div>
+    </div>
   </div>
 
   <div class="separador-vertical"></div>
 
   <div class="tecnologias">
-  <p>Tecnologías que dan vida a esta página</p>
-  <div class="barra-tecnologias">
-    <div class="html" style="width: 40%" title="HTML - 40%"></div>
-    <div class="css" style="width: 40%" title="CSS - 40%"></div>
-    <div class="js" style="width: 20%" title="JavaScript - 20%"></div>
+    <p>Tecnologías que dan vida a esta página</p>
+    <div class="barra-tecnologias">
+      <div class="html" style="width: 40%" title="HTML - 40%"></div>
+      <div class="css" style="width: 40%" title="CSS - 40%"></div>
+      <div class="js" style="width: 20%" title="JavaScript - 20%"></div>
+    </div>
+    <ul class="porcentajes">
+      <li><span class="circulo" style="background-color: #E34F26;"></span> HTML 40%</li>
+      <li><span class="circulo" style="background-color: #264DE4;"></span> CSS 40%</li>
+      <li><span class="circulo" style="background-color: #F0DB4F;"></span> JavaScript 20%</li>
+    </ul>
   </div>
-<ul class="porcentajes">
-  <li><span class="circulo" style="background-color: #E34F26;"></span> HTML 40%</li>
-  <li><span class="circulo" style="background-color: #264DE4;"></span> CSS 40%</li>
-  <li><span class="circulo" style="background-color: #F0DB4F;"></span> JavaScript 20%</li>
-</ul>
-</div>
 
-<footer class="footer">
-  <p>© 2025 [Javier]. Todos los derechos reservados.</p>
-</footer>
+  <footer class="footer">
+    <p>© 2025 [Javier]. Todos los derechos reservados.</p>
+  </footer>
 
   <script>
     const botonTema = document.querySelector('.boton-tema');
@@ -343,21 +111,42 @@
     }
 
     // Forzar el scroll al tope (arriba del todo) cada vez que se recarga la página
-    //window.onbeforeunload = function () {
-    //window.scrollTo(0, 0);
-   //};
-    
+    // window.onbeforeunload = function () {
+    //   window.scrollTo(0, 0);
+    // };
   </script>
 
   <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const titulo = document.querySelector('.maquina-escribir');
+    window.addEventListener('DOMContentLoaded', () => {
+      const titulo = document.querySelector('.maquina-escribir');
 
-    titulo.addEventListener('animationend', () => {
-      titulo.style.borderRight = 'none';
+      titulo.addEventListener('animationend', () => {
+        titulo.style.borderRight = 'none';
+      });
     });
-  });
-</script>
+  </script>
+
+  <script>
+    const proyectos = document.querySelectorAll('.proyecto');
+
+    function detectarCentrado() {
+      proyectos.forEach(proyecto => {
+        const rect = proyecto.getBoundingClientRect();
+        const medioPantalla = window.innerHeight / 2;
+
+        if (rect.top < medioPantalla && rect.bottom > medioPantalla) {
+          proyecto.classList.add('expandido');
+        } else {
+          proyecto.classList.remove('expandido');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', detectarCentrado);
+    window.addEventListener('resize', detectarCentrado);
+    window.addEventListener('DOMContentLoaded', detectarCentrado);
+  </script>
 
 </body>
+
 </html>
