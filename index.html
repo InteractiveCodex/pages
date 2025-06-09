@@ -129,18 +129,22 @@
   <script>
     const proyectos = document.querySelectorAll('.proyecto');
 
-    function detectarCentrado() {
-      proyectos.forEach(proyecto => {
-        const rect = proyecto.getBoundingClientRect();
-        const medioPantalla = window.innerHeight / 2;
+function detectarCentrado() {
+  const rangoSuperior = window.innerHeight * 0.25;
+  const rangoInferior = window.innerHeight * 0.75;
 
-        if (rect.top < medioPantalla && rect.bottom > medioPantalla) {
-          proyecto.classList.add('expandido');
-        } else {
-          proyecto.classList.remove('expandido');
-        }
-      });
+  proyectos.forEach(proyecto => {
+    const rect = proyecto.getBoundingClientRect();
+    const centroElemento = rect.top + rect.height / 2;
+
+    if (centroElemento > rangoSuperior && centroElemento < rangoInferior) {
+      proyecto.classList.add('expandido');
+    } else {
+      proyecto.classList.remove('expandido');
     }
+  });
+}
+
 
     window.addEventListener('scroll', detectarCentrado);
     window.addEventListener('resize', detectarCentrado);
