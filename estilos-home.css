@@ -284,3 +284,10 @@ body.oscuro .footer {
   opacity: 1;
   margin-top: 1rem;
 }
+
+.proyecto.expandido {
+  transform: scale(1.02);
+  z-index: 1;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
