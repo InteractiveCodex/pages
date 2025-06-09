@@ -258,7 +258,7 @@ body.oscuro .footer {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.0rem;
+  gap: 0.8rem;
   font-size: 0.8rem;
   text-align: left;
   max-width: 400px;
@@ -267,7 +267,7 @@ body.oscuro .footer {
 }
 
 .porcentajes li {
-  width: 45%; /* dos por fila PERO TIENE QUE IR A 45 ESTTA A 50 PROVISIONAL*/
+  width: 100%; /* dos por fila PERO TIENE QUE IR A 45 ESTTA A 50 PROVISIONAL*/
 }
 
 .circulo {
