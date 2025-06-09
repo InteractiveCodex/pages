@@ -126,30 +126,44 @@
     });
   </script>
 
-  <script>
-    const proyectos = document.querySelectorAll('.proyecto');
+<script>
+  const proyectos = document.querySelectorAll('.proyecto');
+  let proyectoActual = null;
 
-function detectarCentrado() {
-  const rangoSuperior = window.innerHeight * 0.25;
-  const rangoInferior = window.innerHeight * 0.75;
+  function detectarCentrado() {
+    let candidato = null;
+    let mejorDistancia = Infinity;
 
-  proyectos.forEach(proyecto => {
-    const rect = proyecto.getBoundingClientRect();
-    const centroElemento = rect.top + rect.height / 2;
+    const rangoSuperior = window.innerHeight * 0.2;
+    const rangoInferior = window.innerHeight * 0.8;
 
-    if (centroElemento > rangoSuperior && centroElemento < rangoInferior) {
-      proyecto.classList.add('expandido');
-    } else {
-      proyecto.classList.remove('expandido');
+    proyectos.forEach(proyecto => {
+      const rect = proyecto.getBoundingClientRect();
+      const centroElemento = rect.top + rect.height / 2;
+
+      const distanciaCentroPantalla = Math.abs((window.innerHeight / 2) - centroElemento);
+
+      // Solo considerar si está parcialmente dentro del rango visible
+      if (centroElemento > rangoSuperior && centroElemento < rangoInferior) {
+        if (distanciaCentroPantalla < mejorDistancia) {
+          mejorDistancia = distanciaCentroPantalla;
+          candidato = proyecto;
+        }
+      }
+    });
+
+    if (candidato !== proyectoActual) {
+      if (proyectoActual) proyectoActual.classList.remove('expandido');
+      if (candidato) candidato.classList.add('expandido');
+      proyectoActual = candidato;
     }
-  });
-}
+  }
 
+  window.addEventListener('scroll', detectarCentrado);
+  window.addEventListener('resize', detectarCentrado);
+  window.addEventListener('DOMContentLoaded', detectarCentrado);
+</script>
 
-    window.addEventListener('scroll', detectarCentrado);
-    window.addEventListener('resize', detectarCentrado);
-    window.addEventListener('DOMContentLoaded', detectarCentrado);
-  </script>
 
 </body>
 
