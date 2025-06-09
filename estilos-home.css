@@ -267,7 +267,7 @@ body.oscuro .footer {
 }
 
 .porcentajes li {
-  width: 100%; /* dos por fila PERO TIENE QUE IR A 45 ESTTA A 50 PROVISIONAL*/
+  width: 45%; /* dos por fila PERO TIENE QUE IR A 45 ESTTA A 50 PROVISIONAL*/
 }
 
 .circulo {
