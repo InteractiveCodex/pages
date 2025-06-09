@@ -27,24 +27,9 @@
   <h2>Mis Proyectos Web</h2>
   <p>Explora mis creaciones Web y Mini Juegos</p>
   <div class="proyectos">
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
-      ❤️ Stats de vida
-      <div class="info-extra">
-        <p>Convierte tu vida en estadísticas visuales.</p>
-      </div>
-    </div>
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
-      💻 Proximamente
-      <div class="info-extra">
-        <p>No disponible actualmente.</p>
-      </div>
-    </div>
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
-      💻 Proximamente
-      <div class="info-extra">
-        <p>No disponible actualmente.</p>
-      </div>
-    </div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">❤️ Stats de vida</div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
   </div>
 
   <div class="separador-vertical"></div>
@@ -52,12 +37,7 @@
   <h2>Mis Proyectos Android</h2>
   <p>Explora mis creaciones para Android</p>
   <div class="proyectos">
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
-      💻 TaskPlanner
-      <div class="info-extra">
-        <p>Organiza tu tiempo y tareas de forma simple, clara y eficiente.</p>
-      </div>
-    </div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 TaskPlanner</div>
   </div>
 
   <div class="separador-vertical"></div>
@@ -65,12 +45,7 @@
   <h2>Addons para WoW Classic</h2>
   <p>Explora mis Addons para WoW Classic</p>
   <div class="proyectos">
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">
-      💻 ClassicPlus
-      <div class="info-extra">
-        <p>Addon completo que mejora la calidad de vida del jugador, con registro detallado de estadísticas y ajustes personalizados.</p>
-      </div>
-    </div>
+    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 ClassicPlus</div>
   </div>
 
   <div class="separador-vertical"></div>
@@ -125,46 +100,6 @@
       });
     });
   </script>
-
-<script>
-  const proyectos = document.querySelectorAll('.proyecto');
-  let proyectoActual = null;
-
-  function detectarCentrado() {
-    let candidato = null;
-    let mejorDistancia = Infinity;
-
-    const rangoSuperior = window.innerHeight * 0.2;
-    const rangoInferior = window.innerHeight * 0.8;
-
-    proyectos.forEach(proyecto => {
-      const rect = proyecto.getBoundingClientRect();
-      const centroElemento = rect.top + rect.height / 2;
-
-      const distanciaCentroPantalla = Math.abs((window.innerHeight / 2) - centroElemento);
-
-      // Solo considerar si está parcialmente dentro del rango visible
-      if (centroElemento > rangoSuperior && centroElemento < rangoInferior) {
-        if (distanciaCentroPantalla < mejorDistancia) {
-          mejorDistancia = distanciaCentroPantalla;
-          candidato = proyecto;
-        }
-      }
-    });
-
-    if (candidato !== proyectoActual) {
-      if (proyectoActual) proyectoActual.classList.remove('expandido');
-      if (candidato) candidato.classList.add('expandido');
-      proyectoActual = candidato;
-    }
-  }
-
-  window.addEventListener('scroll', detectarCentrado);
-  window.addEventListener('resize', detectarCentrado);
-  window.addEventListener('DOMContentLoaded', detectarCentrado);
-</script>
-
-
 </body>
 
 </html>
