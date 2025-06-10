@@ -87,6 +87,11 @@ body.oscuro .componente-basico {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.componente-ancho-fijo {
+  width: 300px;
+  margin: 0 auto;
+}
+
 /* Animaciones */
 @keyframes aparecerAbajo {
   from {opacity: 0; transform: translateY(-20px);}
@@ -103,22 +108,21 @@ body.oscuro .componente-basico {
   to {opacity: 1;}
 }
 
-/* Separadores */
-.separador,
-.separador-vertical {
+.separador {
   transition: var(--transicion);
   animation: aparecer 1s ease forwards;
   margin: 2rem auto;
-  opacity: 0.3;
-}
-
-.separador {
+  opacity: 0.2;
   width: 60%;
   height: 2px;
   background: var(--separador-tema-claro);
 }
 
 .separador-vertical {
+  transition: var(--transicion);
+  animation: aparecer 1s ease forwards;
+  margin: 2rem auto;
+  opacity: 0.2;
   width: 2px;
   height: 20vh;
   background: var(--separador-tema-claro);
@@ -131,7 +135,7 @@ body.oscuro .separador-vertical {
 }
 
 /* Máquina de escribir */
-.maquina-escribir {
+.efecto-escritura {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
@@ -139,18 +143,13 @@ body.oscuro .separador-vertical {
   animation: escribir 3s steps(30, end) forwards;
 }
 
-body.oscuro .maquina-escribir {
+body.oscuro .efecto-escritura {
   border-right: 2px solid var(--texto-tema-oscuro);
 }
 
 @keyframes escribir {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 100%;
-  }
+  from {width: 0;}
+  to {width: 100%;}
 }
 
 /* Footer */
@@ -173,8 +172,7 @@ body.oscuro .footer {
   opacity: 0.5;
 }
 
-/* Tecnologías */
-.tecnologias {
+.contenedor-tecnologias {
   margin-top: 1rem;
   text-align: center;
   animation: aparecer 1s ease forwards;
