@@ -14,13 +14,13 @@
   <h1>Imagina hoy, construye mañana</h1>
 
   <p>
-    <snap class="maquina-escribir">Descubre mis proyectos de desarrollo</snap>
+    <snap class="efecto-escritura">Descubre mis proyectos de desarrollo</snap>
   </p>
 
   <div class="separador-vertical"></div>
 
   <p>Luz u oscuridad... tú decides</p>
-  <button class="componente-basico" onclick="cambiarTema()">Modo Oscuro</button>
+  <button class="componente-basico componente-ancho-fijo" onclick="cambiarTema()">Modo Oscuro</button>
 
   <div class="separador-vertical"></div>
 
@@ -50,7 +50,7 @@
 
   <div class="separador-vertical"></div>
 
-  <div class="tecnologias">
+  <div class="contenedor-tecnologias">
     <p>Tecnologías que dan vida a esta página</p>
     <div class="barra-tecnologias">
       <div class="html" style="width: 40%" title="HTML - 40%"></div>
@@ -58,9 +58,9 @@
       <div class="js" style="width: 20%" title="JavaScript - 20%"></div>
     </div>
     <ul class="porcentajes">
-      <li><span class="circulo" style="background-color: #E34F26;"></span> HTML 40%</li>
-      <li><span class="circulo" style="background-color: #264DE4;"></span> CSS 40%</li>
-      <li><span class="circulo" style="background-color: #F0DB4F;"></span> JavaScript 20%</li>
+      <li><span class="circulo" style="background-color: #E34F26;"></span> HTML 40% – La estructura detrás de cada idea.</li>
+      <li><span class="circulo" style="background-color: #264DE4;"></span> CSS 40% – Estilo, diseño y personalidad visual.</li>
+      <li><span class="circulo" style="background-color: #F0DB4F;"></span> JavaScript 20% – Interactividad y lógica dinámica.</li>
     </ul>
   </div>
 
@@ -93,7 +93,7 @@
 
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      const titulo = document.querySelector('.maquina-escribir');
+      const titulo = document.querySelector('.efecto-escritura');
 
       titulo.addEventListener('animationend', () => {
         titulo.style.borderRight = 'none';
