@@ -20,32 +20,32 @@
   <div class="separador-vertical"></div>
 
   <p>Luz u oscuridad... tú decides</p>
-  <button class="boton-tema" onclick="cambiarTema()">Modo Oscuro</button>
+  <button class="componente-basico" onclick="cambiarTema()">Modo Oscuro</button>
 
   <div class="separador-vertical"></div>
 
   <h2>Mis Proyectos Web</h2>
   <p>Explora mis creaciones Web y Mini Juegos</p>
-  <div class="proyectos">
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">❤️ Stats de vida</div>
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
+  <div class="contenedor-proyectos">
+    <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">❤️ Stats de vida</div>
+    <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
+    <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
   </div>
 
   <div class="separador-vertical"></div>
 
   <h2>Mis Proyectos Android</h2>
   <p>Explora mis creaciones para Android</p>
-  <div class="proyectos">
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 TaskPlanner</div>
+  <div class="contenedor-proyectos">
+    <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 TaskPlanner</div>
   </div>
 
   <div class="separador-vertical"></div>
 
   <h2>Addons para WoW Classic</h2>
   <p>Explora mis Addons para WoW Classic</p>
-  <div class="proyectos">
-    <div class="proyecto" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 ClassicPlus</div>
+  <div class="contenedor-proyectos">
+    <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 ClassicPlus</div>
   </div>
 
   <div class="separador-vertical"></div>
@@ -69,7 +69,7 @@
   </footer>
 
   <script>
-    const botonTema = document.querySelector('.boton-tema');
+    const botonTema = document.querySelector('.proyecto');
 
     // Detectar modo preferido del sistema
     const temaSistemaOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
