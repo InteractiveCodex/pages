@@ -2,13 +2,13 @@
   --fondo-tema-claro: #F8F8FF;
   --fondo-tema-oscuro: #0F172A;
   --texto-tema-claro: #0F172A;
-  --texto-tema-oscuro: #F1F5F9;
+  --texto-tema-oscuro: #F8F8FF;
   --separador-tema-claro: #333333;
   --separador-tema-oscuro: #CCCCCC;
   --transicion: all 0.3s ease;
 }
 
-* { /* ----- Estilo base ----- */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -32,7 +32,6 @@ body.oscuro {
   color: var(--texto-tema-oscuro);
 }
 
-/* ----- Estilo texto ----- */
 h1 {
   animation: aparecer 1s ease forwards;
   text-align: center;
@@ -56,34 +55,7 @@ p {
   margin-bottom: 2rem;
 }
 
-/* ----- Estilo boton ----- */
-.boton-tema {
-  background: rgba(255, 255, 255, 0.4);
-  color: var(--texto-tema-claro);
-  transition: var(--transicion);
-  width: 300px;
-  border: 1px solid #333;
-  border-radius: 1rem;
-  backdrop-filter: blur(10px);
-  cursor: pointer;
-  transform: scale(1);
-  padding: 1rem;
-  animation: aparecer 1s ease forwards;
-}
-
-body.oscuro .boton-tema {
-  border: 1px solid #CCC;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--texto-tema-oscuro);
-}
-
-.boton-tema:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* ----- Contenedor proyectos ----- */
-.proyectos {
+.contenedor-proyectos {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -91,7 +63,7 @@ body.oscuro .boton-tema {
   max-width: 600px;
 }
 
-.proyecto {
+.componente-basico {
   padding: 1rem;
   border: 1px solid #333;
   border-radius: 1rem;
@@ -104,49 +76,31 @@ body.oscuro .boton-tema {
   text-align: center;
 }
 
-body.oscuro .proyecto {
+body.oscuro .componente-basico {
   border: 1px solid #ccc;
   background: rgba(255, 255, 255, 0.1);
+  color: var(--texto-tema-oscuro);
 }
 
-.proyecto:hover {
+.componente-basico:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Animaciones */
 @keyframes aparecerAbajo {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 @keyframes aparecerArriba {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 @keyframes aparecer {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 /* Separadores */
@@ -267,7 +221,7 @@ body.oscuro .footer {
 }
 
 .porcentajes li {
-  width: 0%; /* dos por fila PERO TIENE QUE IR A 45 ESTTA A 50 PROVISIONAL*/
+  width: 100%;
 }
 
 .circulo {
