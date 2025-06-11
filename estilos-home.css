@@ -109,7 +109,7 @@ body.oscuro .separador-vertical {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-align: left;
   max-width: 400px;
   margin-left: auto;
@@ -224,7 +224,7 @@ body.oscuro .efecto-escritura {
   width: 100%;
   max-width: 600px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--texto-tema-claro);
   opacity: 0.7;
   border-top: 1px solid var(--texto-tema-claro);
@@ -248,6 +248,7 @@ body.oscuro .footer {
   background: rgba(255, 255, 255, 0.4);
   transition: var(--transicion);
   text-align: center;
+  height: 400px; /* Eliminar para que se adapte al contenido */
 }
 
 body.oscuro .card-contextual {
@@ -273,3 +274,4 @@ body.oscuro .card-contextual {
 .oculto {
   display: none;
 }
+
