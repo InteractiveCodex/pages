@@ -13,9 +13,7 @@
 
   <h1>Imagina hoy, construye mañana</h1>
 
-  <p>
-    <snap class="efecto-escritura">Descubre mis proyectos de desarrollo</snap>
-  </p>
+  <p><snap class="efecto-escritura">Descubre mis proyectos de desarrollo</snap></p>
 
   <div class="separador-vertical"></div>
 
@@ -27,7 +25,14 @@
   <h2>Mis Proyectos Web</h2>
   <p>Explora mis creaciones Web y Mini Juegos</p>
   <div class="contenedor-proyectos">
-    <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">❤️ Stats de vida</div>
+    <div class="componente-basico" onclick="toggleCard(this)">
+      ❤️ Stats de vida
+    </div>
+    <div class="card-contextual oculto">
+      <p>Un paseo por tus propias estadísticas personales.</p>
+      <a href="proyectos/stats-de-vida.html" class="boton-descarga" target="_blank">Abrir</a>
+    </div>
+
     <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
     <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
   </div>
@@ -50,14 +55,14 @@
 
   <div class="separador-vertical"></div>
 
-  <div class="contenedor-tecnologias">
+  <div class="contenedor-basico">
     <p>Tecnologías que dan vida a esta página</p>
-    <div class="barra-tecnologias">
+    <div class="componente-progress-bar">
       <div class="html" style="width: 40%" title="HTML - 40%"></div>
       <div class="css" style="width: 40%" title="CSS - 40%"></div>
       <div class="js" style="width: 20%" title="JavaScript - 20%"></div>
     </div>
-    <ul class="porcentajes">
+    <ul class="contenedor-extra">
       <li><span class="circulo" style="background-color: #E34F26;"></span> HTML 40% – La estructura detrás de cada idea.</li>
       <li><span class="circulo" style="background-color: #264DE4;"></span> CSS 40% – Estilo, diseño y personalidad visual.</li>
       <li><span class="circulo" style="background-color: #F0DB4F;"></span> JavaScript 20% – Interactividad y lógica dinámica.</li>
@@ -100,6 +105,23 @@
       });
     });
   </script>
+
+  <script>
+    function toggleCard(boton) {
+      const card = boton.nextElementSibling;
+
+      // Si la tarjeta está visible, la ocultamos
+      if (card.classList.contains('card-contextual') && !card.classList.contains('oculto')) {
+        card.classList.add('oculto');
+      } else {
+        // Oculta cualquier otra tarjeta abierta
+        document.querySelectorAll('.card-contextual:not(.oculto)').forEach(c => c.classList.add('oculto'));
+        // Muestra esta
+        card.classList.remove('oculto');
+      }
+    }
+  </script>
+
 </body>
 
 </html>
