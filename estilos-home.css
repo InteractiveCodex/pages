@@ -166,6 +166,18 @@ body.oscuro .componente-basico {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
+.componente-progress-bar .progreso-activo {
+   background-color: #4CAF50;
+}
+
+.componente-progress-bar .progreso-inactivo {
+  background-color: #e0e0e0;
+}
+
+body.oscuro .componente-progress-bar .progreso-inactivo {
+  background-color: #444;
+}
+
 .componente-progress-bar div {
   height: 100%;
 }
@@ -248,7 +260,6 @@ body.oscuro .footer {
   background: rgba(255, 255, 255, 0.4);
   transition: var(--transicion);
   text-align: center;
-  height: 400px; /* Eliminar para que se adapte al contenido */
 }
 
 body.oscuro .card-contextual {
@@ -259,12 +270,12 @@ body.oscuro .card-contextual {
 
 .boton-descarga {
   display: inline-block;
-  padding: 8px 32px;
+  padding: 8px 64px;
   background-color: #4CAF50;
   color: white;
-  border-radius: 6px;
+  border-radius: 1rem;
   text-decoration: none;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .boton-descarga:hover {
@@ -274,4 +285,3 @@ body.oscuro .card-contextual {
 .oculto {
   display: none;
 }
-
