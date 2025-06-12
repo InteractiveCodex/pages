@@ -268,7 +268,7 @@ body.oscuro .card-contextual {
   color: var(--texto-tema-oscuro);
 }
 
-.boton-descarga {
+.boton-acceso {
   display: inline-block;
   padding: 8px 64px;
   background-color: #4CAF50;
@@ -278,10 +278,11 @@ body.oscuro .card-contextual {
   margin-top: 2rem;
 }
 
-.boton-descarga:hover {
-  background-color: #45a049;
+.boton-acceso:hover {
+  background-color: #4CAF50;
 }
 
 .oculto {
   display: none;
 }
+
