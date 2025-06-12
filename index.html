@@ -7,6 +7,8 @@
   <title>Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos-home.css">
+  <!-- Librería Lottie -->
+  <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 </head>
 
 <body>
@@ -31,15 +33,19 @@
     <div class="card-contextual oculto">
       <p>Un paseo por tus propias estadísticas personales.</p>
       <p>Estado: En desarrollo</p>
+
+  <!-- Contenedor para la animación -->
+  <div id="animacionStats" style="width: 100%; height: 150px;"></div>
+
           <div class="componente-progress-bar">
       <div class="progreso-activo" style="width: 40%" title="progreso - 40%"></div>
       <div class="progreso-inactivo" style="width: 60%" title="progreso-inactivo - 60%"></div>
     </div>
     
-      <p><span class="circulo" style="background-color: #4CAF50;"></span> Progreso completado</p>
+      <p><span class="circulo" style="background-color: #4CAF50;"></span> Progreso completado - 40%</p>
 
 
-      <a href="proyectos/stats-de-vida.html" class="boton-descarga">Abrir</a>
+      <a href="proyectos/stats-de-vida.html" class="boton-acceso">Abrir</a>
     </div>
 
     <div class="componente-basico" onclick="alert('Esta parte está en modo avión. Volverá a aterrizar pronto.')">💻 Proximamente</div>
@@ -130,6 +136,18 @@
       }
     }
   </script>
+
+  <script>
+  // Animación única para la tarjeta de "Stats de vida"
+  lottie.loadAnimation({
+    container: document.getElementById('animacionStats'), // ID exacto del div
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'recursos/anim_person.json' // Ruta a tu animación Lottie
+  });
+</script>
+
 
 </body>
 
