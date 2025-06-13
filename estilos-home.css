@@ -51,6 +51,12 @@ h2 {
   margin-bottom: 1rem;
 }
 
+h3 {
+  animation: aparecer 1s ease forwards;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
 p {
   animation: aparecer 1s ease forwards;
   text-align: center;
