@@ -270,7 +270,7 @@ body.oscuro .card-contextual {
 
 .boton-acceso {
     width: 100%;
-  height: 32px;
+  padding: 1rem;
   display: block;
   background-color: #4CAF50;
   color: white;
