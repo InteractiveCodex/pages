@@ -137,6 +137,7 @@ body.oscuro .separador-vertical {
   transform: scale(1);
   animation: aparecer 1s ease forwards;
   text-align: center;
+  margin: 1rem auto;
 }
 
 body.oscuro .componente-basico {
