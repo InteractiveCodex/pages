@@ -289,7 +289,6 @@ body.oscuro .card-contextual {
 .imagen-estadistica {
   width: 100%;
   height: auto;
-  margin: 1rem auto;
   display: block;
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
