@@ -285,3 +285,14 @@ body.oscuro .card-contextual {
 .oculto {
   display: none;
 }
+
+.imagen-estadistica {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
