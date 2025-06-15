@@ -25,7 +25,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 2rem;
+  padding: 0rem;
 }
 
 body.oscuro {
@@ -100,6 +100,7 @@ body.oscuro .separador-vertical {
   gap: 1rem;
   width: 100%;
   max-width: 600px;
+  padding: 2rem;
 }
 
 .contenedor-extra {
@@ -306,14 +307,14 @@ html {
   top: 0;
   z-index: 1000;
   width: 100%;
-  background-color: rgb(248, 248, 255);
+  background-color: rgb(248, 248, 255 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #ddd;
   transition: var(--transicion);
 }
 
 body.oscuro .navbar {
-  background-color: rgba(18, 18, 18);
+  background-color: rgba(18, 18, 18, 0.8);
   border-bottom: 1px solid #444;
 }
 
