@@ -295,3 +295,69 @@ body.oscuro .card-contextual {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Navbar fija */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: rgb(248, 248, 255 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ddd;
+  transition: var(--transicion);
+}
+
+body.oscuro .navbar {
+  background-color: rgba(18, 18, 18, 0.8);
+  border-bottom: 1px solid #444;
+}
+
+.navbar-contenido {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--texto-tema-claro);
+}
+
+
+body.oscuro .logo {
+  color: var(--texto-tema-oscuro);
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--texto-tema-claro);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: var(--transicion);
+}
+
+.nav-links a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.oscuro .nav-links a {
+  color: var(--texto-tema-oscuro);
+}
+
+body.oscuro .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
